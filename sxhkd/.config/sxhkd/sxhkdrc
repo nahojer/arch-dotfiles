@@ -1,0 +1,167 @@
+###
+# sxhkd
+###
+
+# Restart sxhkd.
+super + Escape
+    pkill -USR1 -x sxhkd
+
+
+###
+# Menu
+###
+
+# Power menu.
+super + p
+  powermenu
+
+# Network menu.
+super + n
+  networkmanager_dmenu
+
+# Active programs.
+alt + p
+  rofi -show
+
+# Open program.
+super+d
+  rofi -modi drun,run -show drun
+
+# A bunch of different stuff.
+super + s; {c,C,e}
+  {clipmenu,rofi -show calc --no-show-match --no-sort -modi calc,rofi -show emoji -modi emoji}
+
+
+###
+# Screenshots
+###
+
+Print
+  flameshot gui --path $HOME/Pictures/Screenshots
+
+###
+# Brightness
+###
+
+XF86MonBrightnessUp
+  light -A 5
+
+XF86MonBrightnessDown
+  light -B 5
+
+###
+# Audio
+###
+
+XF86AudioRaiseVolume
+  pamixer --increase 4
+
+XF86AudioLowerVolume
+  pamixer --decrease 4
+
+XF86AudioMute
+  pamixer --toggle-mute
+
+XF86AudioPlay
+    playerctl play-pause
+
+ctrl + alt + p
+    playerctl play-pause
+
+XF86AudioNext
+    playerctl next
+
+XF86AudioPrev
+    playerctl previous
+
+
+###
+# i3 Movement
+###
+
+# Change focus.
+super+{h,j,k,l}
+  I3SOCK=$(i3 --get-socket) i3-msg focus {left,down,up,right}
+
+# Move focused window.
+super+shift+{h,j,k,l}
+  I3SOCK=$(i3 --get-socket) i3-msg move {left,down,up,right}
+
+# Split in vertical/horizontal orientation.
+super + {z,x}
+  I3SOCK=$(i3 --get-socket) i3-msg split {v,h}
+
+# Enter fullscreen mode for the focused container.
+super + f
+  I3SOCK=$(i3 --get-socket) i3-msg fullscreen toggle
+
+# Toggle tiling / floating.
+super + shift + space
+  I3SOCK=$(i3 --get-socket) i3-msg floating toggle
+
+# Change focus between tiling / floating windows.
+super + space
+  I3SOCK=$(i3 --get-socket) i3-msg focus mode_toggle
+
+# Focus the parent container.
+super + a
+  I3SOCK=$(i3 --get-socket) i3-msg focus parent
+
+
+### 
+# i3 Workspaces
+###
+
+super + shift + b
+  I3SOCK=$(i3 --get-socket) i3-msg move workspace to output next
+
+# Switch to workspace on first monitor.
+super + {1-9}
+  I3SOCK=$(i3 --get-socket) i3-msg workspace {1-9}
+
+# Switch to workspace on second monitor.
+alt + {0,1,2,3,4,5,6,7,8,9}
+  I3SOCK=$(i3 --get-socket) i3-msg workspace {10,11,12,13,14,15,16,17,18,19}
+
+# Move focused container to workspace on first monitor.
+super + shift + {1-9}
+  I3SOCK=$(i3 --get-socket) i3-msg move container to workspace number {1-9}
+
+# Move focused container to workspace on second monitor.
+alt+shift + {0,1,2,3,4,5,6,7,8,9}
+  I3SOCK=$(i3 --get-socket) i3-msg move container to workspace number {10,11,12,13,14,15,16,17,18,19}
+
+
+###
+# i3 Windows
+###
+
+# Resize window.
+super + ctrl + {h,j,k,l}
+  I3SOCK=$(i3 --get-socket) i3-msg resize {grow width 1 px or 1 ppt, shrink height 1 px or 1 ppt, grow height 1 px or 1 ppt, shrink width 1 px or 1 ppt}
+
+# Kill focused window.
+super + shift + q
+  I3SOCK=$(i3 --get-socket) i3-msg kill
+
+
+###
+# i3 General
+###
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3).
+super + shift + r
+  I3SOCK=$(i3 --get-socket) i3-msg restart 
+
+
+### 
+# Terminal
+### 
+
+# Alacritty.
+super + Return
+  alacritty
+
+# Alacritty in new tmux session.
+super + shift + Return
+  alacritty -e tmux

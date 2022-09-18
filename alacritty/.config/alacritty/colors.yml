@@ -1,0 +1,163 @@
+schemes:
+  # VSCode themes.
+  codelight: &vscode_light
+    primary:
+      background: '#ffffff'
+      foreground: '#1e1e1e'
+    cursor:
+      text: '#d4d4d4'
+      cursor: '#d4d4d4'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+    bright:
+      black:   '#1e1e1e'
+      red:     '#c72e0f'
+      green:   '#009000'
+      yellow:  '#795e25'
+      blue:    '#007acc'
+      magenta: '#af00db'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+
+  codedark: &vscode_dark
+    primary:
+      background: '#1e1e1e'
+      foreground: '#d4d4d4'
+    cursor:
+      text: '#d4d4d4'
+      cursor: '#d4d4d4'
+    normal:
+      black:   '#1e1e1e'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+    bright:
+      black:   '#545454'
+      red:     '#f44747'
+      green:   '#608b4e'
+      yellow:  '#dcdcaa'
+      blue:    '#569cd6'
+      magenta: '#c678dd'
+      cyan:    '#56b6c2'
+      white:   '#d4d4d4'
+ 
+  # Aquarium themes.
+  aquarium_light: &aquarium_light
+    primary:
+      background:        &aquarium_bg '#E6E6F1'
+      foreground:        '#708190'
+      bright_foreground: '#9CA6B9'
+      dim_foreground:    '#7F8E9D'
+    cursor:
+      cursor: '#829FB0'
+    vi_mode_cursor:
+      cursor: '#6A8CBC'
+    bright:
+      black:   '#414560'
+      red:     '#B7435E'
+      green:   '#7e8f80'
+      yellow:  '#D88B72'
+      blue:    '#6E7EBF'
+      magenta: '#7170C2'
+      cyan:    '#728A9A'
+      white:   '#CCCBD9'
+    normal:
+      black:   '#313449'
+      red:     '#C34864'
+      green:   '#7D9685'
+      yellow:  '#DE956F'
+      blue:    '#6A8CBC'
+      magenta: '#8787BF'
+      cyan:    '#829FB0'
+      white:   '#D5D4E0'
+
+  aquarium_dark: &aquarium_dark
+    primary:
+      background:        &aquarium_bg '#20202A'
+      foreground:        '#63718B'
+      bright_foreground: '#a0a8b6'
+      dim_foreground:    '#4c5664'
+    cursor:
+      cursor: '#b8dceb'
+      text: '#20202a'
+    vi_mode_cursor:
+      cursor: '#E8CCA7'
+    bright:
+      black:   '#3b3b4d'
+      red:     '#cc9b9d'
+      green:   '#a3ccad'
+      yellow:  '#d1ba97'
+      blue:    '#B8C9EA'
+      magenta: '#c497b3'
+      cyan:    '#95C2D1'
+      white:   '#63718B'
+    normal:
+      black:   '#44495E'
+      red:     '#ebb9b9'
+      green:   '#caf6bb'
+      yellow:  '#ebe3b9'
+      blue:    '#cddbf9'
+      magenta: '#f6bbe7'
+      cyan:    '#b8dceb'
+      white:   '#C6D0E9'
+  nord: &nord
+    primary:
+      background: '#2e3440'
+      foreground: '#d8dee9'
+      dim_foreground: '#a5abb6'
+    cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    vi_mode_cursor:
+      text: '#2e3440'
+      cursor: '#d8dee9'
+    selection:
+      text: CellForeground
+      background: '#4c566a'
+    search:
+      matches:
+        foreground: CellBackground
+        background: '#88c0d0'
+      bar:
+        background: '#434c5e'
+        foreground: '#d8dee9'
+    normal:
+      black: '#3b4252'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#88c0d0'
+      white: '#e5e9f0'
+    bright:
+      black: '#4c566a'
+      red: '#bf616a'
+      green: '#a3be8c'
+      yellow: '#ebcb8b'
+      blue: '#81a1c1'
+      magenta: '#b48ead'
+      cyan: '#8fbcbb'
+      white: '#eceff4'
+    dim:
+      black: '#373e4d'
+      red: '#94545d'
+      green: '#809575'
+      yellow: '#b29e75'
+      blue: '#68809a'
+      magenta: '#8c738c'
+      cyan: '#6d96a5'
+      white: '#aeb3bb'
+
+colors: *nord

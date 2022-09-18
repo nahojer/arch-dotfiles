@@ -1,0 +1,28 @@
+include ${XDG_CONFIG_HOME:-$HOME/.config}/i3/theme.conf
+include ${XDG_CONFIG_HOME:-$HOME/.config}/i3/rules.conf
+include ${XDG_CONFIG_HOME:-$HOME/.config}/i3/workspaces.conf
+
+exec_always --no-startup-id ${XDG_CONFIG_HOME:-$HOME/.config}/i3/autostart.sh
+
+# Monitors
+set $fm DP-1
+#set $sm HDMI-0
+
+# Super key.
+set $mod Mod4
+
+# Font for window titles. 
+font pango:monospace 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Pulsemixer scratchpad.
+exec_always --no-startup-id pgrep -f '^alacritty --class pulse,pulse' || alacritty --class pulse,pulse -e pulsemixer
+for_window [class="pulse"] floating enable, resize set 1250 750, move to scratchpad
+bindsym $mod+b [class="pulse"] scratchpad show; move position center
+
+# Terminal scratchpad.
+exec_always --no-startup-id pgrep -f '^alacritty --class ttrm,ttrm' || alacritty --class ttrm,ttrm
+for_window [class="ttrm"] floating enable, resize set 1250 750, move to scratchpad
+bindsym $mod+t [class="ttrm"] scratchpad show; move position center

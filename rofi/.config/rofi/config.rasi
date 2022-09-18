@@ -1,0 +1,6 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 13";
+}
+
+@import "~/.config/rofi/themes/nord.rasi"
+

@@ -1,0 +1,18 @@
+[init]
+        defaultBranch = main
+[user]
+	email = ronkko.johan@gmail.com
+	name = Johan Rönkkö
+[color]
+	ui = auto
+[core]
+	editor = nvim
+[alias]
+	# List all aliases and trim the "alias." prefix.
+	alias = !git config --list | grep -E '^alias' | awk -F'.' '{print $2}'
+	# Print last commit.
+	last = log -1 HEAD --stat
+	# Undo all changes and remove all untracked files and dirs.
+	fuckit = !"bash -c 'git reset HEAD --hard ; git clean -f'"
+[credential]
+	helper = store
