@@ -53,3 +53,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     require("plugin.settings.lsp.utils").format {}
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    require("plugin.settings.lsp.utils").go_organize_imports()
+  end,
+})
