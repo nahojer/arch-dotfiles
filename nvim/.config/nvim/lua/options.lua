@@ -1,7 +1,7 @@
 -- Ignore compiled files
 vim.opt.wildignore = "__pycache__"
-vim.opt.wildignore:append({ "*.o", "*~", "*.pyc", "*pycache*" })
-vim.opt.wildignore:append("Cargo.lock")
+vim.opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
+vim.opt.wildignore:append "Cargo.lock"
 
 -- -- Cool floating window popup menu for completion on command line
 vim.opt.pumblend = 17
@@ -10,7 +10,7 @@ vim.opt.wildoptions = "pum"
 
 vim.opt.equalalways = false -- I don't like my windows changing all the time
 vim.opt.backup = false -- creates a backup file
-vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
+--vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 2 -- more space in the neovim command line for displaying messages
 vim.opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 vim.opt.conceallevel = 0 -- so that `` is visible in markdown files
@@ -44,9 +44,9 @@ vim.opt.sidescrolloff = 8
 vim.opt.fillchars.eob = " "
 vim.opt.hidden = true
 vim.opt.diffopt = { "internal", "filler", "closeoff", "hiddenoff", "algorithm:minimal" }
-vim.opt.shortmess:append("c") -- don't show redundant messages from ins-completion-menu
-vim.opt.whichwrap:append("<,>,[,],h,l")
-vim.opt.iskeyword:append("-")
+vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
+vim.opt.whichwrap:append "<,>,[,],h,l"
+vim.opt.iskeyword:append "-"
 vim.opt.visualbell = true
 
 -- Cursorline highlighting control
@@ -54,13 +54,13 @@ vim.opt.visualbell = true
 vim.opt.cursorline = true -- Highlight the current line
 local group = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)
-	vim.api.nvim_create_autocmd(event, {
-		group = group,
-		pattern = pattern,
-		callback = function()
-			vim.opt_local.cursorline = value
-		end,
-	})
+  vim.api.nvim_create_autocmd(event, {
+    group = group,
+    pattern = pattern,
+    callback = function()
+      vim.opt_local.cursorline = value
+    end,
+  })
 end
 set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
@@ -87,15 +87,15 @@ vim.opt.modelines = 1
 vim.opt.belloff = "all" -- Just turn the dang bell off
 
 vim.opt.formatoptions = vim.opt.formatoptions
-	- "a" -- Auto formatting is BAD.
-	- "t" -- Don't auto format my code. I got linters for that.
-	+ "c" -- In general, I like it when comments respect textwidth
-	+ "q" -- Allow formatting comments w/ gq
-	- "o" -- O and o, don't continue comments
-	+ "r" -- But do continue when pressing enter.
-	+ "n" -- Indent past the formatlistpat, not underneath it.
-	+ "j" -- Auto-remove comments if possible.
-	- "2" -- I'm not in gradeschool anymore
+  - "a" -- Auto formatting is BAD.
+  - "t" -- Don't auto format my code. I got linters for that.
+  + "c" -- In general, I like it when comments respect textwidth
+  + "q" -- Allow formatting comments w/ gq
+  - "o" -- O and o, don't continue comments
+  + "r" -- But do continue when pressing enter.
+  + "n" -- Indent past the formatlistpat, not underneath it.
+  + "j" -- Auto-remove comments if possible.
+  - "2" -- I'm not in gradeschool anymore
 
 -- set joinspaces
 vim.opt.joinspaces = false -- Two spaces and grade school, we're done

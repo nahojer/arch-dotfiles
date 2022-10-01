@@ -77,7 +77,17 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local mappings = {
+local xopts = {
+  mode = "x", -- VISUAL block mode
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = true, -- use `nowait` when creating keymaps
+}
+local nmappings = {
+  ["y"] = { '"+y', "Yank to clipboard" },
+  ["Y"] = { '"+yg$', "Yank to clipboard" },
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current(nil, {})<CR>", "Comment" },
   ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
@@ -194,8 +204,16 @@ local mappings = {
 }
 
 local vmappings = {
+  ["y"] = { '"+y', "Yank to clipboard" },
+  ["d"] = { '"_d', "Delete" },
   ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
 }
 
-wk.register(mappings, opts)
+local xmappings = {
+  ["p"] = { '"_dP', "Paste" },
+  ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
+}
+
+wk.register(nmappings, opts)
 wk.register(vmappings, vopts)
+wk.register(xmappings, xopts)

@@ -51,13 +51,6 @@ keymap("n", "Y", "yg$", opts)
 -- Backtick is annoying to press on Swedish keyboard...
 keymap("n", "+", "`", opts)
 
--- Only paste most recent yank.
-keymap("n", "p", '"0p', opts)
-keymap("n", "P", '"0P', opts)
-
---- Cut overrides yank register.
-keymap("n", "x", '"0x', opts)
-
 -- Move current line up and down.
 keymap("n", "<M-j>", ":m .+1<CR>==", opts)
 keymap("n", "<M-k>", ":m .-2<CR>==", opts)
@@ -98,16 +91,6 @@ keymap("i", "<M-k>", "<Esc>:m .-2<CR>==gi", opts)
 -- Stay in indent mode.
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
-
--- Better paste.
-keymap("v", "p", '"_dP', opts)
-
--- Only paste most recent yank.
-keymap("v", "p", '"0p', opts)
-keymap("v", "P", '"0P', opts)
-
--- Cut overrides yank register.
-keymap("v", "x", '"0x', opts)
 
 -- Move selected lines up and down.
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
