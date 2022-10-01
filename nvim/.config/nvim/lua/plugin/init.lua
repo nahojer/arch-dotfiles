@@ -42,17 +42,12 @@ packer.init {
 return packer.startup(function(use)
   use { "wbthomason/packer.nvim" } -- Have packer manage itself
 
-  -- Colorschemes
-  use { "frenzyexists/aquarium-vim" }
-  use { "shaunsingh/nord.nvim" }
-
   use { "nvim-lua/plenary.nvim" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim" }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
   use { "windwp/nvim-ts-autotag" }
   use { "kyazdani42/nvim-web-devicons" }
-  use { "kyazdani42/nvim-tree.lua" }
   use { "akinsho/bufferline.nvim" }
   use { "moll/vim-bbye" }
   use {
@@ -71,7 +66,15 @@ return packer.startup(function(use)
   use { "andymass/vim-matchup" }
   use { "kylechui/nvim-surround" }
   use { "ethanholz/nvim-lastplace" }
-  use { "stevearc/aerial.nvim" }
+
+  -- Colorschemes
+  use { "frenzyexists/aquarium-vim" }
+  use { "shaunsingh/nord.nvim" }
+
+  -- File explorer
+  use { "kyazdani42/nvim-tree.lua" }
+
+  -- Git
   use { "f-person/git-blame.nvim" }
 
   -- cmp plugins
@@ -107,6 +110,7 @@ return packer.startup(function(use)
   -- Treesitter
   use { "nvim-treesitter/nvim-treesitter" }
   use { "nvim-treesitter/nvim-treesitter-textobjects" }
+  use { "stevearc/aerial.nvim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

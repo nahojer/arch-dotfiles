@@ -27,7 +27,6 @@ require "plugin.settings.aerial"
 require "plugin.settings.lastplace"
 require "plugin.settings.gitblame"
 require "plugin.settings.dap"
-require "plugin.settings.whichkey"
 
 -- Inspo:
 -- https://github.com/nvim-neo-tree/neo-tree.nvim (see https://github.com/Allaman/nvim/blob/main/lua/plugins.lua)
