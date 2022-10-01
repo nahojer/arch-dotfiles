@@ -15,6 +15,7 @@ iwctl device list
 ```
 
 If powered off, run:
+
 ```
 rfkill unblock all
 ```
@@ -35,12 +36,12 @@ dhcpcd wlan0
 
 Run `archinstall` and select i3-gaps (desktop environment), pipewire (audio) and add your user to the "video" group. Furthermore, choose to install the following packages:
 
-* networkmanager 
-* network-manager-applet 
-* modemmanager 
-* Usb_modeswitch
-* dhcpcd 
-* wpa_supplicant
+- networkmanager
+- network-manager-applet
+- modemmanager
+- Usb_modeswitch
+- dhcpcd
+- wpa_supplicant
 
 ## Step 4: Post Installation
 
@@ -72,14 +73,14 @@ mkdir -p $HOME/{Downloads,Work,Projects}
 mkdir -p $HOME/Pictures/{Wallpapers,Screenshots}
 ```
 
-Install pacman packages: 
+Install pacman packages:
 
 ```
 sudo pacman -S git zsh stow exa neovim firefox
 ```
 
 Clone dotfiles:
-  
+
 ```
 cd $HOME && cit clone https://github.com/nahojer/.dotfiles.git
 ```
@@ -108,10 +109,16 @@ Reboot.
 Install more pacman packages:
 
 ```
-sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light
+sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light shfmt eslint_d shellcheck luarocks ruby php fd
 ```
 
 [Install Go](https://go.dev/doc/install).
+
+Install Go tools:
+
+```
+go install golang.org/x/tools/cmd/goimports@latest
+```
 
 Install Rust:
 
@@ -131,21 +138,21 @@ makepkg -si
 Install yay packages:
 
 ```
-yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui
+yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good
 ```
 
 Configure wget:
 
 ```
-cd $HOME/.dotfiles 
-stow wget 
+cd $HOME/.dotfiles
+stow wget
 ```
 
 [Install nvm](https://github.com/nvm-sh/nvm).
 
 Install npm:
 
-``` 
+```
 cd $HOME/.dotfiles
 stow npm
 nvm install node
@@ -168,7 +175,7 @@ blacklist pcspkr
 
 Update /etc/lightdm/lightdm.conf with webkit2 greeter.
 
-Stow everything in $HOME/.dotfiles. 
+Stow everything in $HOME/.dotfiles.
 
 Note, first time you enter nvim you are going to be fed with a wall of errors. Run `:PackerSync` and re-enter nvim again to fix the issues.
 
