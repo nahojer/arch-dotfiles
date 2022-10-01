@@ -92,6 +92,12 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim" } -- for formatters and linters
   use { "RRethy/vim-illuminate" }
 
+  -- Debugger
+  use { "mfussenegger/nvim-dap" }
+  use { "leoluz/nvim-dap-go" }
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+  use { "theHamsta/nvim-dap-virtual-text", requires = { "mfussenegger/nvim-dap" } }
+
   -- Telescope
   use { "nvim-telescope/telescope.nvim" }
   use { "nvim-telescope/telescope-project.nvim" }

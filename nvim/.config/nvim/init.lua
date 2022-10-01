@@ -26,6 +26,7 @@ require "plugin.settings.surround"
 require "plugin.settings.aerial"
 require "plugin.settings.lastplace"
 require "plugin.settings.gitblame"
+require "plugin.settings.dap"
 require "plugin.settings.whichkey"
 
 -- Inspo:
@@ -33,7 +34,6 @@ require "plugin.settings.whichkey"
 -- https://github.com/nvim-neo-tree/neo-tree.nvim (see https://github.com/Allaman/nvim/blob/main/lua/plugins.lua)
 
 -- https://github.com/Allaman/nvim/blob/main/lua/plugins.lua
--- f-person/git-blame.nvim
 -- https://github.com/tpope/vim-fugitive
 -- folke/todo-comments.nvim
 -- https://github.com/EdenEast/nightfox.nvim
