@@ -109,7 +109,7 @@ Reboot.
 Install more pacman packages:
 
 ```
-sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light shfmt eslint_d shellcheck luarocks ruby php fd
+sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light shfmt eslint_d shellcheck luarocks fd delve
 ```
 
 [Install Go](https://go.dev/doc/install).
