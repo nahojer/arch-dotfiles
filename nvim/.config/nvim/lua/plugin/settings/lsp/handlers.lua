@@ -87,11 +87,17 @@ end
 M.on_attach = function(client, bufnr)
   lsp_keymaps(bufnr)
 
-  local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
+  local status_illuminate_ok, illuminate = pcall(require, "illuminate")
+  if not status_illuminate_ok then
     return
   end
   illuminate.on_attach(client)
+
+  local status_aerial_ok, aerial = pcall(require, "aerial")
+  if not status_aerial_ok then
+    return
+  end
+  aerial.on_attach(client, bufnr)
 end
 
 return M

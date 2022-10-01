@@ -18,7 +18,6 @@ end
 bufferline.setup {
   options = {
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
-    offsets = { { filetype = "NvimTree", text = "", padding = 0 } },
     separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
     modified_icon = "●",
     left_trunc_marker = "",

@@ -132,10 +132,7 @@ local mappings = {
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--hidden,--with-filename,--line-number,--column,--smart-case,--fixed-strings,--multiline<CR>",
       "Text",
     },
-    c = {
-      "<cmd>lua require('telescope.builtin.internal').colorscheme({enable_preview = true})<CR>",
-      "Colorscheme with preview",
-    },
+    c = { "<cmd>Telescope aerial<CR>", "Code outline" },
     m = { "<cmd>Telescope marks<CR>", "Marks" },
     h = { "<cmd>Telescope help_tags<CR>", "Help" },
     M = { "<cmd>Telescope man_pages<CR>", "Man pages" },
@@ -144,7 +141,6 @@ local mappings = {
     j = { "<cmd>Telescope jumplist<CR>", "Jumplist" },
     x = { '<cmd>lua require("telescope").extensions.media_files.media_files()<CR>', "Media files" },
   },
-  -- keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   ["l"] = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code actions" },
