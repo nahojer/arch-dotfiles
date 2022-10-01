@@ -72,6 +72,7 @@ return packer.startup(function(use)
   use { "kylechui/nvim-surround" }
   use { "ethanholz/nvim-lastplace" }
   use { "stevearc/aerial.nvim" }
+  use { "f-person/git-blame.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin

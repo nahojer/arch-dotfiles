@@ -25,6 +25,7 @@ require "plugin.settings.matchup"
 require "plugin.settings.surround"
 require "plugin.settings.aerial"
 require "plugin.settings.lastplace"
+require "plugin.settings.gitblame"
 require "plugin.settings.whichkey"
 
 -- Inspo:

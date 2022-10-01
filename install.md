@@ -26,7 +26,7 @@ Then connect with (replace wlan0 with whatever device you have):
 iwctl wlan0 station get-networks/scan/connect
 ```
 
-Finally, enable DHCP:
+Enable DHCP:
 
 ```
 dhcpcd wlan0

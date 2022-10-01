@@ -199,6 +199,7 @@ local nmappings = {
     name = "Toggle",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    b = { "<cmd>:GitBlameToggle<CR>", "Git blame" },
   },
   ["q"] = {
     name = "Quit",
