@@ -1,32 +1,31 @@
-require("options")
-require("commands")
-require("keymaps")
-require("plugin")
-require("autocmds")
-require("colorscheme")
-require("plugin.settings.colorizer")
-require("plugin.settings.marks")
-require("plugin.settings.cmp")
-require("plugin.settings.telescope")
-require("plugin.settings.treesitter")
-require("plugin.settings.autopairs")
-require("plugin.settings.comment")
-require("plugin.settings.lualine")
-require("plugin.settings.nvim-tree")
-require("plugin.settings.bufferline")
-require("plugin.settings.toggleterm")
-require("plugin.settings.project")
-require("plugin.settings.impatient")
-require("plugin.settings.illuminate")
-require("plugin.settings.indent-blankline")
-require("plugin.settings.lsp")
-require("plugin.settings.alpha")
-require("plugin.settings.numb")
-require("plugin.settings.matchup")
-require("plugin.settings.surround")
-require("plugin.settings.lastplace")
-require("plugin.settings.hop")
-require("plugin.settings.whichkey")
+require "options"
+require "commands"
+require "plugin"
+require "keymaps"
+require "autocmds"
+require "colorscheme"
+require "plugin.settings.colorizer"
+require "plugin.settings.marks"
+require "plugin.settings.cmp"
+require "plugin.settings.telescope"
+require "plugin.settings.treesitter"
+require "plugin.settings.autopairs"
+require "plugin.settings.comment"
+require "plugin.settings.lualine"
+require "plugin.settings.nvim-tree"
+require "plugin.settings.bufferline"
+require "plugin.settings.toggleterm"
+require "plugin.settings.project"
+require "plugin.settings.impatient"
+require "plugin.settings.illuminate"
+require "plugin.settings.lsp"
+require "plugin.settings.alpha"
+require "plugin.settings.numb"
+require "plugin.settings.matchup"
+require "plugin.settings.surround"
+require "plugin.settings.lastplace"
+require "plugin.settings.hop"
+require "plugin.settings.whichkey"
 
 -- TODO:
 -- https://github.com/nvim-telescope/telescope-dap.nvim and dap plugin
