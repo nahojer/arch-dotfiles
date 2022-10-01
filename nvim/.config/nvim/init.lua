@@ -29,7 +29,6 @@ require "plugin.settings.whichkey"
 
 -- TODO:
 -- https://github.com/nvim-telescope/telescope-dap.nvim and dap plugin
--- https://github.com/nvim-telescope/telescope-ui-select.nvim
 -- https://github.com/nvim-telescope/telescope-smart-history.nvim
 -- https://github.com/nvim-telescope/telescope-arecibo.nvim
 -- https://github.com/nvim-neo-tree/neo-tree.nvim (see https://github.com/Allaman/nvim/blob/main/lua/plugins.lua)

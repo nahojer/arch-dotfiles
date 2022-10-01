@@ -11,7 +11,6 @@ telescope.setup {
     layout_config = {
       width = 0.90,
       height = 0.95,
-      preview_width = 0.55,
     },
 
     prompt_prefix = " ",
@@ -58,9 +57,29 @@ telescope.setup {
       -- Display symbols as <root>.<parent>.<symbol>
       show_nesting = true,
     },
+    ["ui-select"] = {
+      require("telescope.themes").get_dropdown {
+        -- even more opts
+      },
+
+      -- pseudo code / specification for writing custom displays, like the one
+      -- for "codeactions"
+      -- specific_opts = {
+      --   [kind] = {
+      --     make_indexed = function(items) -> indexed_items, width,
+      --     make_displayer = function(widths) -> displayer
+      --     make_display = function(displayer) -> function(e)
+      --     make_ordinal = function(e) -> string
+      --   },
+      --   -- for example to disable the custom builtin "codeactions" display
+      --      do the following
+      --   codeactions = false,
+      -- }
+    },
   },
 }
 
 telescope.load_extension "project"
 telescope.load_extension "media_files"
 telescope.load_extension "aerial"
+telescope.load_extension "ui-select"
