@@ -91,7 +91,6 @@ M.on_attach = function(client, bufnr)
   if not status_ok then
     return
   end
-
   illuminate.on_attach(client)
 end
 

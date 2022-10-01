@@ -71,9 +71,7 @@ return packer.startup(function(use)
   use { "andymass/vim-matchup" }
   use { "kylechui/nvim-surround" }
   use { "ethanholz/nvim-lastplace" }
-  use {
-    "phaazon/hop.nvim",
-  }
+  use { "stevearc/aerial.nvim" }
 
   -- cmp plugins
   use { "hrsh7th/nvim-cmp" } -- The completion plugin

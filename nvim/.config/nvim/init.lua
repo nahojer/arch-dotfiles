@@ -21,10 +21,9 @@ require "plugin.settings.illuminate"
 require "plugin.settings.lsp"
 require "plugin.settings.alpha"
 require "plugin.settings.numb"
-require "plugin.settings.matchup"
+--require "plugin.settings.matchup"
 require "plugin.settings.surround"
 require "plugin.settings.lastplace"
-require "plugin.settings.hop"
 require "plugin.settings.whichkey"
 
 -- TODO:
