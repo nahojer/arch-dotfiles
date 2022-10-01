@@ -3,25 +3,81 @@ if not status_ok then
   return
 end
 
+local function diagnostics_indicator(_, _, diagnostics, _)
+  local result = {}
+  local symbols = { error = "", warning = "", info = "" }
+  for name, count in pairs(diagnostics) do
+    if symbols[name] and count > 0 then
+      table.insert(result, symbols[name] .. " " .. count)
+    end
+  end
+  result = table.concat(result, " ")
+  return #result > 0 and result or ""
+end
+
 bufferline.setup {
   options = {
     close_command = "Bdelete! %d", -- can be a string | function, see "Mouse actions"
     offsets = { { filetype = "NvimTree", text = "", padding = 0 } },
     separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
-    -- NOTE: this plugin is designed with this icon in mind,
-    -- and so changing this is NOT recommended, this is intended
-    -- as an escape hatch for people who cannot bear it for whatever reason
-    buffer_close_icon = "",
-    -- buffer_close_icon = '',
     modified_icon = "●",
-    -- close_icon = '',
-    close_icon = "",
     left_trunc_marker = "",
     right_trunc_marker = "",
-
     -- Doesn't make sense to show close icons with mouse disabled.
     show_buffer_close_icons = false,
     show_close_icon = false,
+    indicator = {
+      icon = "▎", -- this should be omitted if indicator style is not 'icon'
+      style = "icon", -- can also be 'underline'|'none',
+    },
+    -- name_formatter can be used to change the buffer's label in the bufferline.
+    -- Please note some names can/will break the
+    -- bufferline so use this at your discretion knowing that it has
+    -- some limitations that will *NOT* be fixed.
+    name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+      -- remove extension from markdown files for example
+      if buf.name:match "%.md" then
+        return vim.fn.fnamemodify(buf.name, ":t:r")
+      end
+    end,
+    max_name_length = 18,
+    max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+    truncate_names = true, -- whether or not tab names should be truncated
+    tab_size = 18,
+    diagnostics = "nvim_lsp",
+    diagnostics_update_in_insert = false,
+    diagnostics_indicator = diagnostics_indicator,
+    offsets = {
+      {
+        filetype = "undotree",
+        text = "Undotree",
+        highlight = "PanelHeading",
+        padding = 1,
+      },
+      {
+        filetype = "NvimTree",
+        text = "Explorer",
+        highlight = "PanelHeading",
+        padding = 1,
+      },
+      {
+        filetype = "DiffviewFiles",
+        text = "Diff View",
+        highlight = "PanelHeading",
+        padding = 1,
+      },
+      {
+        filetype = "flutterToolsOutline",
+        text = "Flutter Outline",
+        highlight = "PanelHeading",
+      },
+      {
+        filetype = "packer",
+        text = "Packer",
+        highlight = "PanelHeading",
+        padding = 1,
+      },
+    },
   },
   highlights = {
     fill = {
