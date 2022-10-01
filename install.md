@@ -138,7 +138,7 @@ makepkg -si
 Install yay packages:
 
 ```
-yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good
+yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good lazydocker
 ```
 
 Configure wget:
@@ -173,13 +173,11 @@ Get rid of beeps by adding the following to /etc/modprobe.d/nobeep.conf:
 blacklist pcspkr
 ```
 
-Update /etc/lightdm/lightdm.conf with webkit2 greeter.
-
 Stow everything in $HOME/.dotfiles.
 
 Note, first time you enter nvim you are going to be fed with a wall of errors. Run `:PackerSync` and re-enter nvim again to fix the issues.
 
-Also, some i3 and polybar configurations are probably gonna break depending on what hardware you are running (e.g. battery device, etc.). How to find out what devices you need should be commented in the configuration files.
+Also, some i3 and polybar configurations are probably gonna break depending on what hardware you are running (e.g. battery device, etc.). How to find out what devices you need is commented in the configuration files.
 
 Reboot.
 
