@@ -4,4 +4,4 @@ vim.opt_local.wrap = true
 vim.cmd "hi matchURL guifg=DodgerBlue"
 vim.fn.matchadd("matchURL", [[http[s]\?:\/\/[[:alnum:]%\/_#.-]*]])
 
-vim.cmd [[setlocal foldlevel=99 conceallevel=2]]
+vim.cmd [[setlocal foldlevel=99 conceallevel=0]]

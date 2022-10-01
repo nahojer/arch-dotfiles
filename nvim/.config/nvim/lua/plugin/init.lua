@@ -70,6 +70,7 @@ return packer.startup(function(use)
   -- Colorschemes
   use { "frenzyexists/aquarium-vim" }
   use { "shaunsingh/nord.nvim" }
+  use { "EdenEast/nightfox.nvim" }
 
   -- File explorer
   use { "kyazdani42/nvim-tree.lua" }
