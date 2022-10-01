@@ -86,8 +86,8 @@ local xopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 local nmappings = {
-  ["y"] = { '"+y', "Yank to clipboard" },
-  ["Y"] = { '"+yg$', "Yank to clipboard" },
+  ["y"] = { '"+y', "Yank" },
+  ["Y"] = { '"+yg$', "Yank" },
   [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
   ["/"] = { "<cmd>lua require('Comment.api').toggle.linewise.current(nil, {})<CR>", "Comment" },
   ["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
@@ -225,7 +225,7 @@ local nmappings = {
 }
 
 local vmappings = {
-  ["y"] = { '"+y', "Yank to clipboard" },
+  ["y"] = { '"+y', "Yank" },
   ["d"] = { '"_d', "Delete" },
   ["/"] = { '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', "Comment" },
 }

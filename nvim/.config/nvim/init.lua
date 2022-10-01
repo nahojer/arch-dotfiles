@@ -30,8 +30,6 @@ require "plugin.settings.dap"
 require "plugin.settings.whichkey"
 
 -- folke/todo-comments.nvim
--- https://github.com/EdenEast/nightfox.nvim
--- https://github.com/lukas-reineke/headlines.nvim
 -- https://github.com/kevinhwang91/nvim-bqf
 
 -- TODO:
