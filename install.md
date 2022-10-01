@@ -131,7 +131,7 @@ makepkg -si
 Install yay packages:
 
 ```
-yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git
+yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui
 ```
 
 Configure wget:
