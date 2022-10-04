@@ -21,7 +21,7 @@ super + n
 
 # Active programs.
 alt + p
-  rofi -show
+  rofi -show 
 
 # Open program.
 super+d
