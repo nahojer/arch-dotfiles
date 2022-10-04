@@ -173,9 +173,19 @@ Get rid of beeps by adding the following to /etc/modprobe.d/nobeep.conf:
 blacklist pcspkr
 ```
 
+Setup pass:
+
+```
+mkdir -p .local/share/gnupg
+chmod -R 0700 $HOME/.local/share/gnupg
+gpg --gen-key
+pass init <my-email-address>
+```
+
 Enable spotifyd:
 
 ```
+pass insert spotify
 stow spotifyd
 systemctl --user enable spotifyd.service --now
 ```
