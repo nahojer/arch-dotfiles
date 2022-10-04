@@ -31,6 +31,7 @@ require "plugin.settings.whichkey"
 
 -- folke/todo-comments.nvim
 -- https://github.com/kevinhwang91/nvim-bqf
+-- https://github.com/nvim-telescope/telescope-dap.nvim
 
 -- TODO:
 -- * make config unbreakable with commit hash in packer use statement.

@@ -1,4 +1,3 @@
--- local colorscheme = "nord"
 local colorscheme = "aquarium"
 
 --local colorscheme = "dayfox" -- light theme

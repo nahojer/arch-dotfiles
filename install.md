@@ -109,7 +109,7 @@ Reboot.
 Install more pacman packages:
 
 ```
-sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light shfmt eslint_d shellcheck luarocks fd delve
+sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget curl noto-fonts-emoji ttf-dejavu ttf-linux-libertine ttf-fira-mono otf-fira-mono ttf-fira-code feh dunst clipmenu tree unzip mpd flameshot neomutt playerctl man xclip fzf pulsemixer lazygit ttf-joypixels ttf-font-awesome ripgrep btop ncmpcpp stylua lightdm-webkit2-greeter rofi-emoji light shfmt eslint_d shellcheck luarocks fd delve pass
 ```
 
 [Install Go](https://go.dev/doc/install).
@@ -138,7 +138,7 @@ makepkg -si
 Install yay packages:
 
 ```
-yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good lazydocker
+yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good lazydocker spotifyd
 ```
 
 Configure wget:
@@ -171,6 +171,13 @@ Get rid of beeps by adding the following to /etc/modprobe.d/nobeep.conf:
 
 ```
 blacklist pcspkr
+```
+
+Enable spotifyd:
+
+```
+stow spotifyd
+systemctl --user enable spotifyd.service --now
 ```
 
 Stow everything in $HOME/.dotfiles.

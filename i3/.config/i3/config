@@ -26,3 +26,8 @@ bindsym $mod+b [class="pulse"] scratchpad show; move position center
 exec_always --no-startup-id pgrep -f '^alacritty --class ttrm,ttrm' || alacritty --class ttrm,ttrm
 for_window [class="ttrm"] floating enable, resize set 1250 750, move to scratchpad
 bindsym $mod+t [class="ttrm"] scratchpad show; move position center
+
+# Spotify scratchpad.
+exec_always --no-startup-id pgrep -f '^alacritty --class spt,spt' || alacritty --class spt,spt -e spt
+for_window [class="spt"] floating enable, resize set 1250 750, move to scratchpad
+bindsym $mod+s [class="spt"] scratchpad show; move position center

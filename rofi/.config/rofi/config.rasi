@@ -1,6 +1,11 @@
 configuration {
     font: "JetBrainsMono Nerd Font 13";
+    
+    timeout {
+      delay: 10;
+      action: "kb-cancel";
+    }
 }
 
-@import "~/.config/rofi/themes/nord.rasi"
+/*@import "~/.config/rofi/themes/minimal.rasi"*/
 
