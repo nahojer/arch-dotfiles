@@ -4,7 +4,47 @@ if not status_ok then
 end
 
 configs.setup {
-  ensure_installed = "all", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = {
+    "go",
+    "bash",
+    "c",
+    "cmake",
+    "commonlisp",
+    "cpp",
+    "css",
+    "dockerfile",
+    "gitattributes",
+    "gitignore",
+    "glsl",
+    "go",
+    "godot_resource",
+    "gomod",
+    "gowork",
+    "help",
+    "html",
+    "http",
+    "javascript",
+    "jsdoc",
+    "json",
+    "json5",
+    "jsonc",
+    "llvm",
+    "make",
+    "markdown",
+    "prisma",
+    "python",
+    "regex",
+    "rust",
+    "scss",
+    "sql",
+    "svelte",
+    "sxhkrdc",
+    "toml",
+    "tsx",
+    "typescript",
+    "vim",
+    "yaml",
+  }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
   ignore_install = {},
   matchup = {
     enable = false, -- mandatory, false will disable the whole extension
