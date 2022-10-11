@@ -38,7 +38,7 @@ configs.setup {
     "scss",
     "sql",
     "svelte",
-    "sxhkrdc",
+    "sxhkdrc",
     "toml",
     "tsx",
     "typescript",
