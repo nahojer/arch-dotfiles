@@ -117,6 +117,7 @@ sudo pacman -S pamixer alacritty stow tmux western picom rofi sxhkd zathura wget
 Install Go tools:
 
 ```
+go install golang.org/x/tools/gopls@latest
 go install golang.org/x/tools/cmd/goimports@latest
 ```
 
@@ -138,7 +139,7 @@ makepkg -si
 Install yay packages:
 
 ```
-yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good lazydocker spotifyd
+yay -S bitwarden cava ttf-jetbrains-mono nerd-fonts-complete ttf-icomoon-feather ttf-all-the-icons ttf-material-design-icons polybar autotiling networkmanager-dmenu-git python-pip i3lock-fancy-git spotify-tui prettierd python-black fixjson write-good lazydocker spotifyd lua-language-server
 ```
 
 Configure wget:
@@ -156,6 +157,12 @@ Install npm:
 cd $HOME/.dotfiles
 stow npm
 nvm install node
+```
+
+Neovim language servers:
+
+```
+npm i -g vscode-langservers-extracted bash-language-server svelte-language-server @tailwindcss/language-server typescript typescript-language-server vim-language-server vls @astrojs/language-server awk-language-server cssmodules-language-server dockerfile-language-server-nodejs @lifeart/ember-language-server emmet-ls yaml-language-server
 ```
 
 Install file manager:

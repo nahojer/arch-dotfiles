@@ -182,7 +182,7 @@ alias \
   grep='grep --color=auto' \
   df='df -h' \
   tree="tree -aFC --dirsfirst -I .git" \
-  wget="wget -c" \
+  # wget="wget -c" \
   free="free -mt" \
   psgrep="ps aux | grep -v grep | grep -i -e VSZ -e" \
   cleanup='sudo pacman -Rns $(pacman -Qtdq)' \
