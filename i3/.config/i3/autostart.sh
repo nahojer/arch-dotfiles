@@ -6,7 +6,8 @@ picom --config ${XDG_CONFIG_HOME:-$HOME/.config}/picom/picom.conf --experimental
 
 ${XDG_CONFIG_HOME:-$HOME/.config}/polybar/launch.sh &
 
-feh --no-fehbg --randomize --bg-scale $HOME/Pictures/Wallpapers/* &
+THEME="gruvbox"
+feh --no-fehbg --randomize --bg-scale $HOME/Pictures/Wallpapers/$THEME/* &
 
 clipmenud &
 
