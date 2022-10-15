@@ -18,16 +18,16 @@ font pango:monospace 8
 floating_modifier $mod
 
 # Pulsemixer scratchpad.
-exec_always --no-startup-id pgrep -f '^alacritty --class pulse,pulse' || alacritty --class pulse,pulse -e pulsemixer
+exec_always --no-startup-id pgrep -f '^alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class pulse,pulse' || alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class pulse,pulse -e pulsemixer
 for_window [class="pulse"] floating enable, resize set 1250 750, move to scratchpad
 bindsym $mod+b [class="pulse"] scratchpad show; move position center
 
 # Terminal scratchpad.
-exec_always --no-startup-id pgrep -f '^alacritty --class ttrm,ttrm' || alacritty --class ttrm,ttrm
+exec_always --no-startup-id pgrep -f '^alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class ttrm,ttrm' || alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class ttrm,ttrm
 for_window [class="ttrm"] floating enable, resize set 1250 750, move to scratchpad
 bindsym $mod+t [class="ttrm"] scratchpad show; move position center
 
 # Spotify scratchpad.
-exec_always --no-startup-id pgrep -f '^alacritty --class spt,spt' || alacritty --class spt,spt -e spt
+exec_always --no-startup-id pgrep -f '^alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class spt,spt' || alacritty --config-file ~/.config/alacritty/gruvbox_material_hard_dark.yml --class spt,spt -e spt
 for_window [class="spt"] floating enable, resize set 1250 750, move to scratchpad
 bindsym $mod+s [class="spt"] scratchpad show; move position center

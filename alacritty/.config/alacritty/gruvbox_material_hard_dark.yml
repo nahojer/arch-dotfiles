@@ -1,10 +1,10 @@
 schemes:
-  gruvbox_material_medium_dark: &gruvbox_material_medium_dark
+  gruvbox_material_hard_dark: &gruvbox_material_hard_dark
     primary:
-      background: '0x282828'
+      background: '0x1d2021'
       foreground: '0xd4be98'
     normal:
-      black:   '0x3c3836'
+      black:   '0x32302f'
       red:     '0xea6962'
       green:   '0xa9b665'
       yellow:  '0xd8a657'
@@ -13,7 +13,7 @@ schemes:
       cyan:    '0x89b482'
       white:   '0xd4be98'
     bright:
-      black:   '0x3c3836'
+      black:   '0x32302f'
       red:     '0xea6962'
       green:   '0xa9b665'
       yellow:  '0xd8a657'
@@ -22,7 +22,7 @@ schemes:
       cyan:    '0x89b482'
       white:   '0xd4be98'
 
-colors: *gruvbox_material_medium_dark
+colors: *gruvbox_material_hard_dark
 
 # Import additional configuration files
 #
