@@ -65,10 +65,8 @@ vim.opt.modelines = 1
 vim.opt.joinspaces = false -- two spaces and grade school, we're done
 
 -- ignore patterns when searching
-vim.opt.wildignore = "__pycache__"
-vim.opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
-vim.opt.wildignore:append "Cargo.lock"
-vim.opt.wildignore:append "*/node_modules/*"
+vim.opt.wildignore =
+  { "*.o", "*~", "*.pyc", "*pycache*", "Cargo.lock", "*/node_modules/*", "*/cache/*", "*/tmp/*", "*/vendor/" }
 
 -- file explorer
 vim.g.netrw_keepdir = 0

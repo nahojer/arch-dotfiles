@@ -63,7 +63,7 @@ local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
 require("cmp_nvim_lsp").default_capabilities(custom_capabilities)
 custom_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
 
--- custom_capabilities.textDocument.codeLens = { dynamicRegistration = false } -- TODO(johanronkko): what is this doing?
+custom_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 
 -----------------------------------------
 -- Setup Go
@@ -75,6 +75,15 @@ lspconfig.gopls.setup {
     disable_lsp_formatting = true,
   },
   capabilities = custom_capabilities,
+  settings = {
+    gopls = {
+      codelenses = { test = true },
+    },
+  },
+
+  flags = {
+    debounce_text_changes = 200,
+  },
 }
 
 local function goimports(wait_ms)
@@ -98,6 +107,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     if vim.fn.executable "goimports" == 0 then
       vim.lsp.buf.format()
     else
+      vim.lsp.buf.format()
       goimports(1000)
     end
   end,
@@ -112,6 +122,7 @@ lspconfig.sumneko_lua.setup {
     -- turn off builtin lsp formatting and use our own formatting setup
     disable_lsp_formatting = true,
   },
+  capabilities = custom_capabilities,
   settings = {
     Lua = {
       diagnostics = {
