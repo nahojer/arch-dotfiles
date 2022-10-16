@@ -62,8 +62,20 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim" } -- smart comments
 
   -- LSP
-  use { "neovim/nvim-lspconfig" }
+  use { "neovim/nvim-lspconfig" } -- native
   use { "j-hui/fidget.nvim" } -- LSP progress because I'm very impatient
+  use { "onsails/lspkind-nvim" } --  vscode-like pictograms to neovim built-in lsp (used in completion menu)
+
+  -- Completion
+  use { "hrsh7th/nvim-cmp" }
+  use { "hrsh7th/cmp-buffer" }
+  use { "hrsh7th/cmp-path" }
+  use { "hrsh7th/cmp-nvim-lsp" }
+  use { "hrsh7th/cmp-nvim-lua" }
+  use { "hrsh7th/cmp-nvim-lsp-document-symbol" }
+  use { "saadparwaiz1/cmp_luasnip" }
+  use { "L3MON4D3/LuaSnip" }
+  use { "tamago324/cmp-zsh" }
 
   -- Telescope and extensions
   use { "nvim-telescope/telescope.nvim" }

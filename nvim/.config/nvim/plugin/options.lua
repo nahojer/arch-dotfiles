@@ -41,8 +41,6 @@ vim.opt.iskeyword:append "-" -- treat words with hyphens in them as a single wor
 
 vim.opt.belloff = "all" -- just turn the dang bell off
 
-vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
-
 vim.opt.fillchars.eob = " " -- fillchars for empty lines at the end of buffer
 
 vim.opt.autoindent = true -- copy indent from current line when starting a new line
@@ -77,12 +75,14 @@ vim.g.netrw_keepdir = 0
 vim.g.netrw_winsize = 15
 vim.g.netrw_banner = 0
 
--- ignore compiled files
-vim.opt.wildignore = "__pycache__"
-vim.opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
-vim.opt.wildignore:append "Cargo.lock"
-
 -- cool floating window popup menu for completion on command line
 vim.opt.pumblend = 17
 vim.opt.wildmode = "longest:full"
 vim.opt.wildoptions = "pum"
+
+vim.opt.completeopt = {
+  "menu",
+  "menuone", -- menu will come up even if there's only one match
+  "noselect",
+}
+vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu

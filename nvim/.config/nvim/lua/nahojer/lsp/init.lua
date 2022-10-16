@@ -6,6 +6,10 @@ end
 
 require "nahojer.lsp.handlers" -- override lsp handlers
 
+-----------------------------------------
+-- Custom on_attach
+-----------------------------------------
+
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
@@ -31,22 +35,46 @@ local function lsp_highlight_document(client)
 end
 
 -- we typically disable any formatting capabilities of the builtin
--- LSP if we want to override it, e.g. using our own prettierd
--- formatter for tsserver.
+-- LSP if we want our own formatter, e.g. using our own prettierd
+-- formatter for tsserver, or goimports for Go.
 local function lsp_disable_formatting_capabilities(client)
   client.server_capabilities.document_formatting = false
   client.server_capabilities.document_range_formatting = false
 end
+
+local function custom_on_attach_func(opts)
+  opts = opts or {}
+  return function(client, bufnr)
+    lsp_keymaps(bufnr)
+    lsp_highlight_document(client)
+    if opts["disable_lsp_formatting"] then
+      lsp_disable_formatting_capabilities(client)
+    end
+  end
+end
+
+-----------------------------------------
+-- Custom capabilities
+-----------------------------------------
+
+local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
+
+-- Completion configuration
+require("cmp_nvim_lsp").default_capabilities(custom_capabilities)
+custom_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
+
+-- custom_capabilities.textDocument.codeLens = { dynamicRegistration = false } -- TODO(johanronkko): what is this doing?
 
 -----------------------------------------
 -- Setup Go
 -----------------------------------------
 
 lspconfig.gopls.setup {
-  on_attach = function(client, bufnr)
-    lsp_keymaps(bufnr)
-    lsp_highlight_document(client)
-  end,
+  on_attach = custom_on_attach_func {
+    -- turn off builtin lsp formatting and use our own formatting setup
+    disable_lsp_formatting = true,
+  },
+  capabilities = custom_capabilities,
 }
 
 local function goimports(wait_ms)
@@ -67,7 +95,11 @@ end
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = "*.go",
   callback = function()
-    goimports(1000)
+    if vim.fn.executable "goimports" == 0 then
+      vim.lsp.buf.format()
+    else
+      goimports(1000)
+    end
   end,
 })
 
@@ -76,10 +108,10 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -----------------------------------------
 
 lspconfig.sumneko_lua.setup {
-  on_attach = function(client, bufnr)
-    lsp_keymaps(bufnr)
-    lsp_highlight_document(client)
-  end,
+  on_attach = custom_on_attach_func {
+    -- turn off builtin lsp formatting and use our own formatting setup
+    disable_lsp_formatting = true,
+  },
   settings = {
     Lua = {
       diagnostics = {

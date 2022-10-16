@@ -134,7 +134,7 @@ local nmappings = {
     b = { "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<CR>", "Buffer diagnostics" },
     w = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
     H = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
-    H = { "<cmd>lua require('nahojer.lsp.handlers').implementation()<CR>", "Implementation" },
+    I = { "<cmd>lua require('nahojer.lsp.handlers').implementation()<CR>", "Implementation" },
     j = {
       "<cmd>lua vim.diagnostic.goto_next()<cr>",
       "Next diagnostic",
