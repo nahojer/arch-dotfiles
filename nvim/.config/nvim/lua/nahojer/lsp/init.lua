@@ -4,7 +4,7 @@ if not status_ok then
   return
 end
 
-local handlers = require "nahojer.lsp.handlers"
+require "nahojer.lsp.handlers" -- override lsp handlers
 
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
@@ -16,7 +16,7 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gs", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>vim.lsp.format()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-f>", "<cmd>vim.lsp.buf.format()<CR>", opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<M-a>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
 end
 
