@@ -1,3 +1,6 @@
+-- Thanks tjdeveries, for making life so easy.
+-- See https://github.com/tjdevries/config_manager/blob/master/xdg_config/nvim/after/plugin/completion.lua
+
 local status_lspkind_ok, lspkind = pcall(require, "lspkind")
 if not status_lspkind_ok then
   return
@@ -148,6 +151,13 @@ cmp.setup {
     native_menu = false,
 
     -- Let's play with this for a day or two
-    ghost_text = false,
+    ghost_text = true,
   },
 }
+
+_ = vim.cmd [[
+  augroup CmpZsh
+    au!
+    autocmd Filetype zsh lua require'cmp'.setup.buffer { sources = { { name = "zsh" }, } }
+  augroup END
+]]
