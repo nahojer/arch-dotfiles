@@ -30,8 +30,9 @@ zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # Activate zsh completion system.
 autoload -Uz +X compinit && compinit
+zmodload zsh/zpty
 
-# Make completion mnues nicer.
+# Make completion menues nicer.
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 
