@@ -52,3 +52,4 @@ telescope.setup {
 
 telescope.load_extension "project"
 telescope.load_extension "dap"
+telescope.load_extension "harpoon"

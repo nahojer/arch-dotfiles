@@ -78,7 +78,7 @@ local nmappings = {
     q = { "<cmd>:qa<CR>", "Quit" },
     ["!"] = { "<cmd>:qa!<CR>", "Quit without saving" },
   },
-  ["h"] = {
+  ["H"] = {
     name = "+Help",
     t = { "<cmd>:Telescope builtin<CR>", "Telescope" },
     c = { "<cmd>:Telescope commands<CR>", "Commands" },
@@ -150,13 +150,21 @@ local nmappings = {
     i = { "<cmd>LspInfo<CR>", "LSP info" },
   },
   ["d"] = {
-    name = "Debugging",
+    name = "+Debugging",
     c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
     j = { "<cmd>lua require('dap').step_over()<CR>", "Step over" },
     i = { "<cmd>lua require('dap').step_into()<CR>", "Step into" },
     o = { "<cmd>lua require('dap').step_out()<CR>", "Step out" },
     b = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Breakpoint" },
     r = { "<cmd>lua require('dap').repl.open()<CR>", "Open repl" },
+  },
+  ["h"] = {
+    name = "+Harpoon",
+    l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "List" },
+    c = { "<cmd>lua require('harpoon.mark').set_mark_list({})<CR>", "Clear" },
+    a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
+    n = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next file" },
+    p = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Previous file" },
   },
 }
 

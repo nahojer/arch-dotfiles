@@ -87,6 +87,9 @@ return packer.startup(function(use)
   use { "nvim-telescope/telescope-project.nvim" }
   use { "nvim-telescope/telescope-dap.nvim" }
 
+  -- Harpoon
+  use { "ThePrimeagen/harpoon" }
+
   -- Marks
   use { "chentoast/marks.nvim" } -- visal marks in sign column
 
