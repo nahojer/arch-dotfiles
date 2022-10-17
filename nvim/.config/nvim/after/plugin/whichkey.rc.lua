@@ -136,7 +136,7 @@ local nmappings = {
     H = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover" },
     I = { "<cmd>lua require('nahojer.lsp.handlers').implementation()<CR>", "Implementation" },
     j = {
-      "<cmd>lua vim.diagnostic.goto_next()<cr>",
+      "<cmd>lua vim.diagnostic.goto_next()<CR>",
       "Next diagnostic",
     },
     k = {
@@ -148,6 +148,15 @@ local nmappings = {
       "Workspace Symbols",
     },
     i = { "<cmd>LspInfo<CR>", "LSP info" },
+  },
+  ["d"] = {
+    name = "Debugging",
+    c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
+    j = { "<cmd>lua require('dap').step_over()<CR>", "Step over" },
+    i = { "<cmd>lua require('dap').step_into()<CR>", "Step into" },
+    o = { "<cmd>lua require('dap').step_out()<CR>", "Step out" },
+    b = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Breakpoint" },
+    r = { "<cmd>lua require('dap').repl.open()<CR>", "Open repl" },
   },
 }
 

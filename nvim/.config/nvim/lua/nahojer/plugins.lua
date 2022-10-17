@@ -77,9 +77,15 @@ return packer.startup(function(use)
   use { "L3MON4D3/LuaSnip" }
   use { "tamago324/cmp-zsh" }
 
+  -- Debugging
+  use { "mfussenegger/nvim-dap" }
+  use { "rcarriga/nvim-dap-ui" }
+  use { "theHamsta/nvim-dap-virtual-text" }
+
   -- Telescope and extensions
   use { "nvim-telescope/telescope.nvim" }
   use { "nvim-telescope/telescope-project.nvim" }
+  use { "nvim-telescope/telescope-dap.nvim" }
 
   -- Marks
   use { "chentoast/marks.nvim" } -- visal marks in sign column
