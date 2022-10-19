@@ -84,13 +84,12 @@ cmp.setup {
   --        max_item_count
   --        (more?)
   sources = {
-    -- From tjdeveries to Youtube: Could enable this only for lua, but nvim_lua handles that already.
-    { name = "nvim_lua" },
-
+    { name = "nvim_lua" }, -- From tjdeveries to Youtube: Could enable this only for lua, but nvim_lua handles that already.
     { name = "nvim_lsp" },
-    { name = "path" },
     { name = "luasnip" },
+    { name = "cmp_tabnine" },
     { name = "buffer", keyword_length = 5 },
+    { name = "path" },
   },
 
   sorting = {

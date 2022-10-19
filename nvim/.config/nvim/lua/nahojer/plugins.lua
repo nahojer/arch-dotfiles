@@ -73,9 +73,12 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp" }
   use { "hrsh7th/cmp-nvim-lua" }
   use { "hrsh7th/cmp-nvim-lsp-document-symbol" }
+  use { "tamago324/cmp-zsh" }
+  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", run = "./install.sh" }
+  -- Snippet
   use { "saadparwaiz1/cmp_luasnip" }
   use { "L3MON4D3/LuaSnip" }
-  use { "tamago324/cmp-zsh" }
+  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
   -- Debugging
   use { "mfussenegger/nvim-dap" }

@@ -62,7 +62,7 @@ local custom_capabilities = vim.lsp.protocol.make_client_capabilities()
 -- Completion configuration
 require("cmp_nvim_lsp").default_capabilities(custom_capabilities)
 custom_capabilities.textDocument.completion.completionItem.insertReplaceSupport = false
-
+custom_capabilities.textDocument.completion.completionItem.snippetSupport = true
 custom_capabilities.textDocument.codeLens = { dynamicRegistration = false }
 
 -----------------------------------------
