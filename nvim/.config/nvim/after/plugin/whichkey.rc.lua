@@ -3,6 +3,8 @@ if not status_ok then
   return
 end
 
+local toggle = require "nahojer.toggle"
+
 wk.setup {
   -- your configuration comes here
   -- or leave it empty to use the default settings
@@ -120,9 +122,21 @@ local nmappings = {
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
   },
   ["t"] = {
-    name = "Toggle",
+    name = "+Toggle",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    s = {
+      toggle.spelling,
+      "Spelling",
+    },
+    w = {
+      toggle.WordWrap,
+      "Word wrap",
+    },
+    n = {
+      toggle.RelativeLineNumbers,
+      "Relative line Numbers",
+    },
   },
   ["l"] = {
     name = "+LSP",
