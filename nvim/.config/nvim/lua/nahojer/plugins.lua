@@ -102,6 +102,9 @@ return packer.startup(function(use)
   -- Keybindings
   use { "folke/which-key.nvim" }
 
+  -- Surround
+  use { "kylechui/nvim-surround" }
+
   -- Colorschemes
   use { "sainnhe/gruvbox-material" }
 
