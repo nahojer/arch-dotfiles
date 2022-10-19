@@ -172,14 +172,6 @@ local nmappings = {
     b = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Breakpoint" },
     r = { "<cmd>lua require('dap').repl.open()<CR>", "Open repl" },
   },
-  ["h"] = {
-    name = "+Harpoon",
-    l = { "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>", "List" },
-    c = { "<cmd>lua require('harpoon.mark').set_mark_list({})<CR>", "Clear" },
-    a = { "<cmd>lua require('harpoon.mark').add_file()<CR>", "Add file" },
-    n = { "<cmd>lua require('harpoon.mark').nav_next()<CR>", "Next file" },
-    p = { "<cmd>lua require('harpoon.mark').nav_prev()<CR>", "Previous file" },
-  },
 }
 
 local vopts = {

@@ -84,8 +84,6 @@ cmp.setup {
   --        max_item_count
   --        (more?)
   sources = {
-    { name = "gh_issues" },
-
     -- From tjdeveries to Youtube: Could enable this only for lua, but nvim_lua handles that already.
     { name = "nvim_lua" },
 
@@ -140,7 +138,6 @@ cmp.setup {
         nvim_lua = "[api]",
         path = "[path]",
         luasnip = "[snip]",
-        gh_issues = "[issues]",
         tn = "[TabNine]",
       },
     },
