@@ -138,6 +138,7 @@ local nmappings = {
       toggle.RelativeLineNumbers,
       "Relative line Numbers",
     },
+    z = { "<cmd>:ZenMode<CR>", "Zen mode" },
   },
   ["l"] = {
     name = "+LSP",

@@ -140,6 +140,10 @@ return packer.startup(function(use)
   -- CSV
   use { "mechatroner/rainbow_csv" }
 
+  -- Distraction free editing
+  use { "folke/zen-mode.nvim" }
+  use { "folke/twilight.nvim" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
