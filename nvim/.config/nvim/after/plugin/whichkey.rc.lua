@@ -117,14 +117,15 @@ local nmappings = {
   },
   ["g"] = {
     name = "+Git",
-    o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+    o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
+    B = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
   },
   ["t"] = {
     name = "+Toggle",
     g = { "<cmd>lua _LAZYGIT_TOGGLE()<CR>", "Lazygit" },
     d = { "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", "Lazydocker" },
+    b = { "<cmd>:GitBlameToggle<CR>", "Git blame" },
     s = {
       toggle.spelling,
       "Spelling",

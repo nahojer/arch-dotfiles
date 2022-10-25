@@ -128,6 +128,15 @@ return packer.startup(function(use)
   -- Terminal
   use { "akinsho/toggleterm.nvim" }
 
+  -- Git
+  use { "lewis6991/gitsigns.nvim" }
+  use {
+    "f-person/git-blame.nvim",
+    config = function()
+      vim.g.gitblame_enabled = 0
+    end,
+  }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
