@@ -24,7 +24,7 @@ alt + p
   rofi -show 
 
 # Open program.
-super+d
+super + d
   rofi -modi drun,run -show drun
 
 # A bunch of different stuff.
