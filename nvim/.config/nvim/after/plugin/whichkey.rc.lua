@@ -71,6 +71,8 @@ local opts = {
 }
 
 local nmappings = {
+  ["."] = { '<cmd>lua require("harpoon.ui").nav_next()<cr>', "Harpoon Next" },
+  [","] = { '<cmd>lua require("harpoon.ui").nav_prev()<cr>', "Harpoon Prev" },
   ["e"] = { "<cmd>:Lexplore<CR>", "Explorer (cwd)" },
   ["E"] = { "<cmd>:Lexplore %:p:h<CR>", "Explorer" },
   ["y"] = { '"+y', "Yank motion" },
@@ -106,10 +108,11 @@ local nmappings = {
       "<cmd>Telescope live_grep vimgrep_arguments=rg,--color=never,--no-heading,--hidden,--with-filename,--line-number,--column,--smart-case,--fixed-strings,--multiline<CR>",
       "Text",
     },
+    c = { "<cmd>Telescope command_history<CR>", "Command history" },
     C = { "<cmd>Telescope colorscheme<CR>", "Colorscheme" },
     m = { "<cmd>Telescope marks<CR>", "Marks" },
-    h = { "<cmd>Telescope help_tags<CR>", "Help" },
-    H = { "<cmd>Telescope command_history<CR>", "Command history" },
+    h = { "<cmd>Telescope harpoon marks<cr>", "Harpooned files" },
+    H = { "<cmd>Telescope help_tags<CR>", "Help" },
     M = { "<cmd>Telescope man_pages<CR>", "Man pages" },
     r = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
     R = { "<cmd>Telescope registers<CR>", "Registers" },
