@@ -3,17 +3,28 @@ if not status_ok then
   return
 end
 
-vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
-vim.g.indent_blankline_filetype_exclude = {
-  "help",
-  "startify",
-  "dashboard",
-  "packer",
-  "neogitstatus",
-  "NvimTree",
-  "Trouble",
-  "text",
-  "markdown",
+indent_blankline.setup {
+  char = "▏",
+  char_blankline = "▏",
+  filetype_exclude = {
+    "help",
+    "markdown",
+    "Trouble",
+    "NvimTree",
+    "neogitstatus",
+    "dashboard",
+    "packer",
+    "startify",
+    "text",
+    "terminal",
+    "packer",
+    "lspinfo",
+    "TelescopePrompt",
+    "TelescopeResults",
+    "FALLBACK",
+  },
+  buftype_exclude = { "terminal" },
+  show_trailing_blankline_indent = true,
+  show_first_indent_level = false,
+  show_end_of_line = false,
 }
-vim.g.indentLine_enabled = 1
--- vim.g.indent_blankline_char = "│"
