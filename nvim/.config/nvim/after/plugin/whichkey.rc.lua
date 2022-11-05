@@ -141,7 +141,10 @@ local nmappings = {
       toggle.RelativeLineNumbers,
       "Relative line Numbers",
     },
-    z = { "<cmd>:ZenMode<CR>", "Zen mode" },
+    z = {
+      "<cmd>lua require('true-zen.ataraxis').toggle()<CR>",
+      "Zen",
+    },
   },
   ["l"] = {
     name = "+LSP",
