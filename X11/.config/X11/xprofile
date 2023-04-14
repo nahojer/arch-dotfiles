@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# These are the custom commands and programs to run for all window managers.
-
 export WINIT_X11_SCALE_FACTOR=1
 
 xrandr --dpi 96
@@ -14,3 +12,5 @@ xset s 300 5 &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
 setxkbmap us,se -option caps:escape &
+
+sxhkd &

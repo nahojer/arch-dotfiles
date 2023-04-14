@@ -22,11 +22,13 @@ noto-fonts
 noto-fonts-emoji
 otf-fira-mono
 otf-openmoji
+pamixer
 paru
 picom
 pipewire
 qutebrowser
 stow
+sxhkd
 system76-acpi-dkms
 system76-dkms
 system76-driver
