@@ -1,70 +1,61 @@
+$foreground: #ffffff;
+$grey: #aaaaaa;
+$foreground-alt: #465059;
+$background: #0e1419;
+$black: #000000;
+$red: #ff6565;
+$green: #b8cc52;
+$yellow: #e6c446;
+$blue: #68d4ff;
+$magenta: #ffa3aa;
+$cyan: #36a3d9;
+$white: #ffffff;
+
 * {
-  all: unset; // Unsets everything so we can style everything from scratch
+  all: unset;
 }
 
-// Global Styles
+window {
+  background: $background;
+}
+
 .bar {
-  background-color: #3a3a3a;
-  color: #b0b4bc;
-  padding: 10px;
+  font-family: "Noto Sans";
+  font-size: 13px;
+  margin: 0 10px;
 }
 
-// Styles on classes (see eww.yuck for more information)
-// Sidestuff
-.sidestuff slider {
-  all: unset;
-  color: #ffd5cd;
+.icon-module {
+  margin: 0 5px;
+  & > &__icon {
+    margin-right: 5px;
+    font-family: "Font Awesome 5 Free Solid";
+  }
 }
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
+
+.workspaces {
+  font-family: "Font Awesome 5 Free Solid";
+  font-size: 12px;
   margin-right: 20px;
-}
-.metric scale trough highlight {
-  all: unset;
-  background-color: #D35D6E;
-  color: #000000;
-  border-radius: 10px;
-}
-.metric scale trough {
-  all: unset;
-  background-color: #4e4e4e;
-  border-radius: 50px;
-  min-height: 3px;
-  min-width: 50px;
-  margin-left: 10px;
-  margin-right: 20px;
-}
-.label-ram {
-  font-size: large;
-}
-.time {}
-// Music
-.music {}
-// Workspaces
-.workspaces button:hover {
-  color: #D35D6E;
-}
-.ws-button {}
-.ws-button-mine {
-  color: black;
-}
-.ws-button-visible {
-  color: blue;
-}
-.ws-button-urgent {
-  color: red;
-}
-.ws-button-busy {
-  color: green;
+  button {
+    margin: 0px 3px;
+  }
+  .mine {
+    color: $white;
+  }
+  .visible {
+    // Give it a weird color until we figure out what this is...
+    color: $cyan;
+  }
+  .busy {
+    color: $grey;
+  }
+  .urgent {
+    color: $red; 
+  }
+  .empty {
+    padding-top: 2px;
+    color: $foreground-alt;
+    font-size: 10px;
+  }
 }
