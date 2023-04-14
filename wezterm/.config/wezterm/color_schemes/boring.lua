@@ -1,40 +1,45 @@
 local colors = {
-	white = '#ffffdd',
 	black = '#000000',
+	white = '#ffffff',
+	beige = '#ffffdd',
 	gray = '#585858',
+	red = '#bf212f',
+	green = '#27b376',
+	blue = '#264b96',
+	orange = '#f9a73e'
 }
 
 return {
 	-- The default background color
-	background = colors.white,
+	background = colors.beige,
 
 	-- The default text color
 	foreground = colors.black,
 
 	-- Colors of the cursor
 	cursor_bg = colors.black,
-	cursor_fg = colors.white,
+	cursor_fg = colors.beige,
 	cursor_border = colors.black,
 
 	-- The color of selected text
-	selection_fg = colors.white,
+	selection_fg = colors.beige,
 	selection_bg = colors.black,
 
 	-- A list of 8 colors corresponding to the basic ANSI palette
 	ansi = {
 		colors.black, -- ?
-  	colors.black, -- git modified file / deleted in diff, _w_ for group/other
-  	colors.black, -- __x for root, git added in diff, known command in terminal, Size unit in ls
+  	colors.red, -- git modified file / deleted in diff, _w_ for group/other
+  	colors.green, -- __x for root, git added in diff, known command in terminal, Size unit in ls
   	colors.black, -- r__ for non-root
-  	colors.black, -- Date + Modified, branch
+  	colors.orange, -- Date + Modified, branch
   	colors.black, -- ?
-  	colors.black, -- git @@dif
+  	colors.blue, -- git @@dif
   	colors.black, -- ?
 	},
 
 	-- A list of 8 colors corresponding to bright versions of the ANSI palette
 	brights = {
-    colors.black, -- auto-completion preview in terminal
+    colors.gray, -- auto-completion preview in terminal
     colors.black, -- _w_ for root
     colors.black, -- executable files, Size (excluding unit), __x for non-root
     colors.black, -- r__ for root, User (non-root), Some files?
@@ -68,12 +73,12 @@ return {
 	-- In copy_mode, the color of the active text is:
   -- 1. copy_mode_active_highlight_* if additional text was selected using the mouse
   -- 2. selection_* otherwise
-	copy_mode_active_highlight_bg = { Color = colors.white },
+	copy_mode_active_highlight_bg = { Color = colors.beige },
 	copy_mode_active_highlight_fg = { Color = colors.black },
 	copy_mode_inactive_highlight_bg = { Color = colors.gray },
 	copy_mode_inactive_highlight_fg = { Color = colors.black },
 
-	quick_select_label_bg = { Color = colors.white },
+	quick_select_label_bg = { Color = colors.beige },
 	quick_select_label_fg = { Color = colors.black },
 	quick_select_match_bg = { Color = colors.gray },
 	quick_select_match_fg = { Color = colors.black },
