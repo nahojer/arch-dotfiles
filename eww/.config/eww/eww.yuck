@@ -17,15 +17,12 @@
             :onchange "")
     (time)))
 
-; eww is natively able to parse the JSON output of `leftwm-state`
-; since eww also has the ability of `for` loops there is no need for a `liquid` template anymore
 (defwidget workspaces []
     (box :class "workspaces"
          :orientation "h"
          :space-evenly true
          :halign "start"
          :spacing 10
-      (box
         (for tag in '${wmstate.workspaces[0].tags}'
           (button
             :class {tag.mine ? "ws-button-mine" :
@@ -33,7 +30,7 @@
                     tag.urgent ? "ws-button-urgent" :
                     tag.busy ? "ws-button-busy" : "ws-button"}
             :onclick "leftwm-command \"SendWorkspaceToTag 0 ${tag.index}\""
-            {!tag.mine && !tag.busy && !tag.visible && !tag.urgent ?  "·" : "${tag.name}"})))))
+            {"${tag.name}"}))))
 
 (defwidget music []
   (box :class "music"
@@ -41,7 +38,6 @@
        :space-evenly false
        :halign "center"
     {music != "" ? "🎵${music}" : ""}))
-
 
 (defwidget metric [label value onchange]
   (box :orientation "h"
@@ -57,7 +53,6 @@
 (defwidget time []
   (box :class "time" {time}))
 
-
 (deflisten music :initial ""
   "playerctl --follow metadata --format '{{ artist }} - {{ title }}' || true")
 
@@ -68,15 +63,15 @@
   "date '+%H:%M %b %d, %Y'")
 
 (deflisten wmstate 
-           :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
-           "leftwm state")
+  :initial '{"workspaces":[{"layout":"","tags":[{"name":"","index":0,"mine":false,"busy":false,"visible":false,"urgent":false}]}]}'
+  "leftwm state")
 
-(defwindow bar0
+(defwindow bar
   :monitor 0
   :windowtype "dock"
   :geometry (geometry :x "0%"
                       :y "0%"
-                      :width "90%"
+                      :width "100%"
                       :height "10px"
                       :anchor "top center")
   :reserve (struts :side "top" :distance "4%")

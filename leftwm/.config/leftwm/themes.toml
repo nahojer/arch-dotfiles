@@ -218,4 +218,10 @@ leftwm_versions = ">0.3.0"
 url = "localhost"
 name = "LOCAL"
 definitions_version = 1
-themes = []
+
+[[repos.themes]]
+name = "basic_eww"
+directory = "/home/j/.config/leftwm/themes/basic_eww"
+version = "0.0.0"
+leftwm_versions = "*"
+current = true
