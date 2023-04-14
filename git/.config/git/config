@@ -17,9 +17,6 @@
 	nuke = !"bash -c \"git for-each-ref --format '%(refname:short)' refs/heads/ | grep -v master | grep -v main | grep -v stable | grep -v staging | grep -v trunk | grep -v develop | grep -v $(git rev-parse --abbrev-ref HEAD 2>/dev/null) | xargs git branch -D 2>/dev/null\""
 	# Undo all changes and remove all untracked files and dirs.
 	fuckit = !"bash -c 'git reset HEAD --hard ; git clean -f'"
-[credential]
-	helper = store
-	helper = manager
 [push]
 	autoSetupRemote = true
 [pull]
