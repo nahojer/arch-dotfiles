@@ -13,7 +13,13 @@ config.front_end = "OpenGL"
 -- Appearance
 ------------------------------------
 -- Colors
---TODO
+config.color_scheme = 'goplayground_light'
+config.color_schemes = {
+	['plain_white'] = require('color_schemes.plain_white'),
+	['plain_black'] = require('color_schemes.plain_black'),
+	['helix_dark_high_contrast'] = require('color_schemes.helix_dark_high_contrast'),
+	['goplayground_light'] = require('color_schemes.goplayground_light')
+}
 -- Transparency
 config.window_background_opacity = 1
 -- Font (TODO: can we set the font to Go font?)
