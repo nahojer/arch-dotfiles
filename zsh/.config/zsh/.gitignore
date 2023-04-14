@@ -1,0 +1,4 @@
+plugins/*
+.zcompdump*
+.workprofile
+.zshprivate
