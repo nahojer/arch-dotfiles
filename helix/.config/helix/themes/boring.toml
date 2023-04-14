@@ -1,0 +1,46 @@
+"ui.background" = { bg = "theme_bg" }
+"ui.text" = "black"
+"ui.linenr" = { bg = "theme_bg", fg = "lightgray" }
+"ui.linenr.selected" = { bg = "theme_bg", fg = "gray" }
+"ui.selection" = { bg = "selected" }
+"ui.cursorline" = { bg = "lightgray" }
+"ui.statusline" = { fg = "white", bg = "black" }
+"ui.statusline.inactive" = { fg = "white", bg = "black" }
+"ui.virtual" = "lightgray"
+"ui.virtual.ruler" = { bg = "#fff8cc" }
+"ui.cursor" = { bg = "cursor", fg = "white" }
+"ui.debug" = { fg = "orange" }
+"ui.highlight.frameline" = { bg = "#da8581" }
+"ui.menu" = { fg = "black", bg = "theme_bg" }
+"ui.menu.selected" = { fg = "white", bg = "black" }
+"ui.bufferline" = { fg = "white", bg = "black" }
+"ui.bufferline.active" = { fg = "black", bg = "theme_bg" }
+
+"string" = "black"
+"comment" = "black"
+
+"error" = { bg = "theme_bg", fg = "red" }
+"warning" = { bg = "theme_bg", fg = "orange" }
+"info" = { bg = "theme_bg", fg = "black" }
+"hint" = { bg = "theme_bg", fg = "gray" }
+
+"diagnostic.error" = { bg = "theme_bg", fg = "red" }
+"diagnostic.warning" = { bg = "theme_bg", fg = "orange" }
+"diagnostic.info" = { bg = "theme_bg", fg = "black" }
+"diagnostic.hint" = { bg = "theme_bg", fg = "gray" }
+
+"diff.plus" = {fg = "green"}
+"diff.delta" = {fg = "gray"}
+"diff.minus" = {fg = "red"}
+
+[palette]
+theme_bg = "#ffffdd"
+selected = "#eeee9e"
+black = "#202224"
+white = "#ffffff"
+lightgray = "#d3d3d3"
+gray = "#808080"
+cursor = "#444444"
+red = "#a0342f"
+green = "#065905"
+orange = "#f0ad4e"

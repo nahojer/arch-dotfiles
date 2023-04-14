@@ -1,3 +1,5 @@
+theme = "boring"
+
 [editor]
 line-number = "relative"
 mouse = false
