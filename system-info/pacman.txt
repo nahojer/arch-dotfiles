@@ -1,7 +1,9 @@
 base
 base-devel
+chromium
 dhcpcd
 dmenu
+dunst
 efibootmgr
 eww
 exa
@@ -14,6 +16,7 @@ helix
 leftwm
 linux
 linux-firmware
+lsof
 modemmanager
 neofetch
 networkmanager
@@ -26,7 +29,10 @@ pamixer
 paru
 picom
 pipewire
+playerctl
+polybar
 qutebrowser
+spotify
 stow
 sxhkd
 system76-acpi-dkms
@@ -100,4 +106,6 @@ xorg-xvinfo
 xorg-xwd
 xorg-xwininfo
 xorg-xwud
+xscreensaver
+xss-lock
 zsh
