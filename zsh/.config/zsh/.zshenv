@@ -5,8 +5,8 @@
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="vim"
-export VISUAL="vim"
+export EDITOR="helix"
+export VISUAL="helix"
 export TERMINAL="wezterm"
 export BROWSER="qutebrowser"
 
@@ -49,6 +49,9 @@ export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export CONDA_ROOT=/opt/conda
 export CONDA_ENVS_PATH=/opt/conda/envs
 export CONDA_PKGS_DIRS=/opt/conda/pkgs
+
+# Vim
+export MYVIMRC="$XDG_CONFIG_HOME/vim/vimrc"
 
 # xsecurelock
 export XSECURELOCK_NO_COMPOSITE=1 # Prevent "INCOMPATIBLE COMPOSITOR, PLEASE FIX!" to be displayed.
