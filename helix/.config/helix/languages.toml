@@ -1,3 +1,4 @@
 [[language]]
 name = "go"
 formatter = { command = "goimports" }
+config = { hints = { constantValues = true, parameterNames = true, compositeLiteralFields = true }, gofumpt = true, staticcheck = true, goimports = true } 
