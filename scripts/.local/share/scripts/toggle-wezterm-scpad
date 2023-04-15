@@ -1,0 +1,19 @@
+#!/bin/bash
+
+classname="weztermscpad"
+
+winclass="$(xdotool search --class $classname)"
+if [[ -z "$winclass" ]]; then
+    # Create if not already exists.
+    wezterm start --class "$classname"
+else
+    # Toggle hide/show.
+    if [[ ! -f /tmp/"$classname" ]]; then
+        touch /tmp/"$classname" && xdo hide "$winclass"
+    elif [[ -f /tmp/"$classname" ]]; then
+        rm /tmp/"$classname" && xdo show "$winclass"
+    fi
+fi
+
+# Set something like this in bspwmrc:
+#bspc rule -a "$classname" sticky=on state=floating rectangle=800x400+250+250

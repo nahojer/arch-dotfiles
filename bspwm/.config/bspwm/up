@@ -1,0 +1,20 @@
+#!/bin/bash
+
+SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
+
+sxhkd &
+
+eww daemon &
+
+if [ -x "$(command -v picom)" ]; then
+  picom --experimental-backends &> /dev/null &
+  #picom &> /dev/null &
+fi
+
+# Set background
+if [ -x "$(command -v feh)" ]; then
+  feh --bg-scale $SCRIPTPATH/background.jpg
+fi
+
+eww open bar0
+[[ "$(secondarymonitor)" != "" ]] && eww open bar1

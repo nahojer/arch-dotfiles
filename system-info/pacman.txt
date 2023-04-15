@@ -1,5 +1,6 @@
 base
 base-devel
+bspwm
 chromium
 dhcpcd
 dmenu
@@ -9,16 +10,16 @@ eww
 exa
 feh
 git
-gnome-shell-extension-system76-power-git
 go
 grub
 helix
 lazygit
-leftwm
 linux
 linux-firmware
 lsof
 modemmanager
+mplayer
+mpv
 neofetch
 networkmanager
 network-manager-applet
@@ -27,9 +28,12 @@ noto-fonts-emoji
 otf-fira-mono
 otf-openmoji
 pamixer
+pamtester
 paru
 picom
 pipewire
+pipewire-docs
+pipewire-pulse
 playerctl
 polybar
 qutebrowser
@@ -64,6 +68,8 @@ usb_modeswitch
 vim
 wezterm
 wget
+wireplumber
+xclip
 xf86-video-vesa
 xorg-bdftopcf
 xorg-docs

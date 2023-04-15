@@ -36,12 +36,4 @@ fi
 
 [[ -f "$userx11dir/xprofile" ]] && . "$userx11dir/xprofile"
 
-# start window manager
-
-session=${1:-leftwm}
-
-case $session in
-    leftwm         ) exec leftwm;;
-    # no known session, try to run it as a command
-    *              ) exec $1;;
-esac
+exec bspwm

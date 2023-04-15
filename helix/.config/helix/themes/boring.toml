@@ -21,12 +21,12 @@
 
 "error" = { bg = "theme_bg", fg = "red" }
 "warning" = { bg = "theme_bg", fg = "orange" }
-"info" = { bg = "theme_bg", fg = "black" }
+"info" = { bg = "theme_bg", fg = "blue" }
 "hint" = { bg = "theme_bg", fg = "gray" }
 
 "diagnostic.error" = { bg = "theme_bg", fg = "red" }
 "diagnostic.warning" = { bg = "theme_bg", fg = "orange" }
-"diagnostic.info" = { bg = "theme_bg", fg = "black" }
+"diagnostic.info" = { bg = "theme_bg", fg = "blue" }
 "diagnostic.hint" = { bg = "theme_bg", fg = "gray" }
 
 "diff.plus" = {fg = "green"}
@@ -41,6 +41,7 @@ white = "#ffffff"
 lightgray = "#d3d3d3"
 gray = "#808080"
 cursor = "#444444"
-red = "#a0342f"
-green = "#065905"
-orange = "#f0ad4e"
+red = "#bf212f"
+green = "#27b376"
+blue = "#264b96"
+orange = "#f9a73e"

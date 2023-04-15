@@ -23,6 +23,7 @@ window {
   font-family: "Noto Sans";
   font-size: 13px;
   margin: 0 10px;
+  padding: 5px 0px;
 }
 
 .icon-module {
@@ -40,15 +41,11 @@ window {
   button {
     margin: 0px 3px;
   }
-  .mine {
-    color: $white;
-  }
-  .visible {
-    // Give it a weird color until we figure out what this is...
-    color: $cyan;
-  }
-  .busy {
+  .occupied {
     color: $grey;
+  }
+  .focused {
+    color: $white;
   }
   .urgent {
     color: $red; 
@@ -58,4 +55,8 @@ window {
     color: $foreground-alt;
     font-size: 10px;
   }
+}
+
+.sidestuff {
+  color: $grey;
 }

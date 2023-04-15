@@ -1,0 +1,8 @@
+#!/bin/bash
+
+pkill sxhkd
+pkill picom
+pkill conky
+if [ -x "$(command -v eww)" ]; then
+  eww kill
+fi

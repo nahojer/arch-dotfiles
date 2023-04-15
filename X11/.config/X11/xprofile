@@ -13,4 +13,7 @@ xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 
 setxkbmap us,se -option caps:escape &
 
-sxhkd &
+autostart="dunst pipewire"
+for program in $autostart; do
+	pidof -s "$program" || "program" &
+done >/dev/null 2>&1
