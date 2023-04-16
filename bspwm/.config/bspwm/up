@@ -16,5 +16,5 @@ if [ -x "$(command -v feh)" ]; then
   feh --bg-scale $SCRIPTPATH/background.jpg
 fi
 
-eww open bar0
-[[ "$(secondarymonitor)" != "" ]] && eww open bar1
+eww open bar_primary
+[[ "$(secondarymonitor)" != "" ]] && eww open bar_secondary
