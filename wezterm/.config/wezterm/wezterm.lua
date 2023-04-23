@@ -13,15 +13,15 @@ config.front_end = "OpenGL"
 -- Appearance
 ------------------------------------
 -- Colors
-config.color_scheme = 'boring'
+config.color_scheme = 'ayu_dark'
 config.color_schemes = {
 	['plain_white'] = require('color_schemes.plain_white'),
 	['plain_black'] = require('color_schemes.plain_black'),
 	['boring'] = require('color_schemes.boring'),
+	['ayu_dark'] = require('color_schemes.ayu_dark'),
 }
 -- Transparency
 config.window_background_opacity = 1
--- Font (TODO: can we set the font to Go font?)
 config.font_size = 10
 config.line_height = 1.0
 config.dpi = 96.0
@@ -41,7 +41,6 @@ config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
 config.use_fancy_tab_bar = false
--- Cursor (TODO: stop blinkin)
 config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 config.cursor_blink_rate = 0
