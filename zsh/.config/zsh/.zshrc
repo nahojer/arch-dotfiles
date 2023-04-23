@@ -158,6 +158,8 @@ fze() {
 # Aliases
 ###
 alias hx="helix"
+alias lg="lazygit"
+alias ls="exa"
 
 ###
 # FZF
