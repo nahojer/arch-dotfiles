@@ -179,3 +179,5 @@ lockscreen() {
 	# https://github.com/google/xsecurelock
 	xset s activate
 }
+
+source /home/j/.config/broot/launcher/bash/br
