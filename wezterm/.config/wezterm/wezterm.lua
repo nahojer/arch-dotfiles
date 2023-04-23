@@ -13,7 +13,7 @@ config.front_end = "OpenGL"
 -- Appearance
 ------------------------------------
 -- Colors
-config.color_scheme = 'ayu'
+config.color_scheme = 'GitHub Dark'
 config.color_schemes = {
 	['plain_white'] = require('color_schemes.plain_white'),
 	['plain_black'] = require('color_schemes.plain_black'),
