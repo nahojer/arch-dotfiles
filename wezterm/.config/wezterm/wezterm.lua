@@ -13,12 +13,11 @@ config.front_end = "OpenGL"
 -- Appearance
 ------------------------------------
 -- Colors
-config.color_scheme = 'ayu_dark'
+config.color_scheme = 'ayu'
 config.color_schemes = {
 	['plain_white'] = require('color_schemes.plain_white'),
 	['plain_black'] = require('color_schemes.plain_black'),
 	['boring'] = require('color_schemes.boring'),
-	['ayu_dark'] = require('color_schemes.ayu_dark'),
 }
 -- Transparency
 config.window_background_opacity = 1
