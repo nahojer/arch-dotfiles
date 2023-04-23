@@ -7,6 +7,7 @@
 	ui = auto
 [core]
 	editor = helix
+	excludesFile = ~/.config/git/ignore
 [alias]
 	# List all aliases and trim the "alias." prefix.
 	alias = !git config --list | grep -E '^alias' | awk -F'.' '{print $2}'
