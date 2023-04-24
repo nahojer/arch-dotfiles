@@ -56,7 +56,7 @@ window {
       }
       scale trough highlight {
         all: unset;
-        background-color: #ffffdd;
+        background-color: $foreground;
         color: #000000;
         border-radius: 10px;
       }
