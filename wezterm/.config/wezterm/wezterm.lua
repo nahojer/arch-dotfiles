@@ -1,4 +1,5 @@
 local wezterm = require 'wezterm'
+local mux = wezterm.mux
 local act = wezterm.action
 
 local config = {}
@@ -10,8 +11,52 @@ end
 config.front_end = "OpenGL"
 
 ------------------------------------
+-- Events
+------------------------------------
+
+function scandir(directory)
+    local pfile = assert(io.popen(("find '%s' -mindepth 1 -maxdepth 1 -type d -printf '%%f\\0'"):format(directory), 'r'))
+    local list = pfile:read('*a')
+    pfile:close()
+
+    local folders = {}
+    for filename in string.gmatch(list, '[^%z]+') do
+        table.insert(folders, filename)
+    end
+
+    return folders
+end
+
+wezterm.on('update-right-status', function(window, pane)
+  window:set_right_status(window:active_workspace())
+end)
+
+wezterm.on('gui-startup', function(cmd)
+  -- allow `wezterm start -- something` to affect what we spawn
+  -- in our initial window
+  local args = {}
+  if cmd then
+    args = cmd.args
+  end
+
+  local project_dir = wezterm.home_dir .. '/Projects'
+  for _, name in pairs(scandir(project_dir)) do
+    mux.spawn_window { workspace = '~/Projects/' .. name, cwd = project_dir .. '/' .. name, args = args }
+  end
+
+  local work_dir = wezterm.home_dir .. '/Work'
+  for _, name in pairs(scandir(work_dir)) do
+    mux.spawn_window { workspace = '~/Work/' .. name, cwd = work_dir .. '/' .. name, args = args }
+  end
+
+  mux.spawn_window { workspace = 'dotfiles', cwd = wezterm.home_dir .. '/.dotfiles', args = args }
+  mux.set_active_workspace 'dotfiles'
+end)
+
+------------------------------------
 -- Appearance
 ------------------------------------
+
 -- Colors
 config.color_scheme = 'GitHub Dark'
 config.color_schemes = {
@@ -19,11 +64,13 @@ config.color_schemes = {
 	['plain_black'] = require('color_schemes.plain_black'),
 	['boring'] = require('color_schemes.boring'),
 }
+
 -- Transparency
 config.window_background_opacity = 1
 config.font_size = 10
 config.line_height = 1.0
 config.dpi = 96.0
+
 -- Padding
 local horizontalPadding = 5;
 local verticalPadding = 5;
@@ -33,9 +80,10 @@ config.window_padding = {
 	top = verticalPadding,
 	bottom = verticalPadding,
 }
+
 -- Tab bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
@@ -96,6 +144,40 @@ config.keys = {
 	{ key = "s", mods = "LEADER",       action = act.ShowLauncher },
 	-- Search.
 	{ key = '/', mods = 'LEADER',       action = act.Search 'CurrentSelectionOrEmptyString' },
+	-- Workspaces.
+	{
+    key = 'f',
+    mods = 'LEADER',
+    action = act.ShowLauncherArgs {
+      flags = 'FUZZY|WORKSPACES',
+    },
+  },
+  {
+		-- Prompt for a name to use for a new workspace and switch to it.
+    key = 'w',
+    mods = 'LEADER',
+    action = act.PromptInputLine {
+      description = wezterm.format {
+        { Attribute = { Intensity = 'Bold' } },
+        { Foreground = { AnsiColor = 'Fuchsia' } },
+        { Text = 'Enter name for new workspace' },
+      },
+      action = wezterm.action_callback(function(window, pane, line)
+        -- line will be `nil` if they hit escape without entering anything
+        -- An empty string if they just hit enter
+        -- Or the actual line of text they wrote
+        if line then
+          window:perform_action(
+            act.SwitchToWorkspace {
+              name = line,
+            },
+            pane
+          )
+        end
+      end),
+    },
+  },
+
 }
 config.key_tables = {
 	search_mode = {
