@@ -5,6 +5,8 @@ set scrolloff 10
 set hidden true
 set ignorecase true
 set icons true
+set number true
+set relativenumber true
 
 # define a custom 'open' command
 # This command is called when current file is not a directory. You may want to
