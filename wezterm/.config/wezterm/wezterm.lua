@@ -153,7 +153,6 @@ config.keys = {
     },
   },
   {
-		-- Prompt for a name to use for a new workspace and switch to it.
     key = 'w',
     mods = 'LEADER',
     action = act.PromptInputLine {
@@ -177,7 +176,8 @@ config.keys = {
       end),
     },
   },
-
+  { key = 'n', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'p', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(-1) },
 }
 config.key_tables = {
 	search_mode = {
