@@ -1,6 +1,7 @@
 local wezterm = require 'wezterm'
 local mux = wezterm.mux
 local act = wezterm.action
+local gui = wezterm.gui
 
 local config = {}
 if wezterm.config_builder then
@@ -39,18 +40,8 @@ wezterm.on('gui-startup', function(cmd)
     args = cmd.args
   end
 
-  local project_dir = wezterm.home_dir .. '/Projects'
-  for _, name in pairs(scandir(project_dir)) do
-    mux.spawn_window { workspace = '~/Projects/' .. name, cwd = project_dir .. '/' .. name, args = args }
-  end
-
-  local work_dir = wezterm.home_dir .. '/Work'
-  for _, name in pairs(scandir(work_dir)) do
-    mux.spawn_window { workspace = '~/Work/' .. name, cwd = work_dir .. '/' .. name, args = args }
-  end
-
-  mux.spawn_window { workspace = 'dotfiles', cwd = wezterm.home_dir .. '/.dotfiles', args = args }
-  mux.set_active_workspace 'dotfiles'
+  mux.spawn_window { workspace = 'default', cwd = wezterm.home_dir, args = args }
+  mux.set_active_workspace 'default'
 end)
 
 ------------------------------------
@@ -107,7 +98,8 @@ config.keys = {
 	{ key = 'l', mods = 'LEADER',       action = act.ActivatePaneDirection 'Right' },
 	{ key = 'k', mods = 'LEADER',       action = act.ActivatePaneDirection 'Up' },
 	{ key = 'j', mods = 'LEADER',       action = act.ActivatePaneDirection 'Down' },
-	-- Create/close panes.
+  { key = 's', mods = 'LEADER',       action = act.PaneSelect },	
+  -- Create/close panes.
 	{ key = '"', mods = 'LEADER|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
 	{ key = '%', mods = 'LEADER|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 	{ key = 'x', mods = 'LEADER',       action = act.CloseCurrentPane { confirm = true } },
@@ -141,17 +133,10 @@ config.keys = {
 	{ key = 'c', mods = 'SHIFT|CTRL',   action = act.CopyTo 'ClipboardAndPrimarySelection' },
 	{ key = 'v', mods = 'SHIFT|CTRL',   action = act.PasteFrom 'Clipboard' },
 	-- Launcher.
-	{ key = "s", mods = "LEADER",       action = act.ShowLauncher },
+	{ key = "s", mods = "LEADER|SHIFT", action = act.ShowLauncher },
 	-- Search.
 	{ key = '/', mods = 'LEADER',       action = act.Search 'CurrentSelectionOrEmptyString' },
 	-- Workspaces.
-	{
-    key = 'f',
-    mods = 'LEADER',
-    action = act.ShowLauncherArgs {
-      flags = 'FUZZY|WORKSPACES',
-    },
-  },
   {
     key = 'w',
     mods = 'LEADER',
@@ -173,6 +158,85 @@ config.keys = {
             pane
           )
         end
+      end),
+    },
+  },
+  {
+    key = 'f',
+    mods = 'LEADER',
+    -- Asks to select a workspace from a list of pre-defined and already existing workspaces.
+    -- First, if the selected workspace does not already exist, spawn a window in it with 
+    -- a specifed cwd. Then, switch to the workspace.
+    action = act.InputSelector {
+      title = 'Select workspace',
+      choices = (function()
+        local choices = {}
+
+        -- Add existing workspaces to the list of choices.
+        for _, name in pairs(mux.get_workspace_names()) do
+          table.insert(choices, {label = name, id = name })
+        end
+
+        -- Keep track of added workspaces.
+        local added = {}
+        for _, choice in pairs(choices) do
+          added[choice.label] = true
+        end
+
+        -- Add ~/.dotfiles to list of workspaces if not already exists.
+        local dotfiles_label = '~/.dotfiles'
+        if added[dotfiles_label] == nil then
+          table.insert(choices, {label = dotfiles_label, id = wezterm.home_dir .. '/.dotfiles' })
+          added[dotfiles_label] = true
+        end
+
+        -- Add all directories in ~/Projects to list of workspace if not already exists.
+        local projects_dir = wezterm.home_dir .. '/Projects'
+        for _, name in pairs(scandir(projects_dir)) do
+          local label = "~/Projects/" .. name
+          if added[label] == nil then
+            table.insert(choices, {label = label, id = projects_dir .. "/" .. name })
+            added[label] = true
+          end
+        end
+
+        -- Add all directories in ~/Work to list of workspace if not already exists.
+        local work_dir = wezterm.home_dir .. '/Work'
+        for _, name in pairs(scandir(work_dir)) do
+          local label = "~/Work/" .. name
+          if added[label] == nil then
+            table.insert(choices, {label = label, id = work_dir .. "/" .. name })
+            added[label] = true
+          end
+        end
+
+        table.sort(choices, function(a, b) return a.label < b.label end)
+
+        return choices
+      end)(),
+      action = wezterm.action_callback(function(window, pane, id, label)
+        if not id and not label then
+          return
+        end
+
+        local workspace_exists = false
+        for _, name in pairs(mux.get_workspace_names()) do
+          if name == id then
+            workspace_exists = true
+            break
+          end
+        end
+
+        if not workspace_exists then
+          mux.spawn_window { workspace = label, cwd = id } 
+        end
+
+        window:perform_action(
+          act.SwitchToWorkspace {
+            name = label,
+          },
+          pane
+        )
       end),
     },
   },
