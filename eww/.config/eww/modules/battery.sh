@@ -7,7 +7,7 @@ function print_battery() {
 
   cap=$(cat "/sys/class/power_supply/$BATTERY/capacity")
   [[ "$status" == "Full" ]] && cap="100"
-  [ "$cap" -gt "97" ] && cap="100" 
+  [ "$cap" -gt "97" ] && cap="100"
 
   icon=""
   if [ "$cap" -gt 0 ] && [ "$cap" -le 10 ]; then
@@ -42,7 +42,7 @@ function print_battery() {
     [[ "$status" == "Discharging" ]] && icon="󰁹"
   fi
 
-  echo "(box :class \"battery\" :orientation \"h\" :space-evenly false (label :text \"$icon $cap\"))"
+  echo "(box :class \"battery\" :orientation \"h\" :space-evenly false (label :text \"$icon  $cap\"))"
 }
 
 print_battery

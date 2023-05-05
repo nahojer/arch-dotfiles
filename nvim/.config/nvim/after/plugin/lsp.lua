@@ -43,11 +43,40 @@ lsp.set_preferences {
   },
 }
 
+local function filter(arr, fn)
+  if type(arr) ~= 'table' then
+    return arr
+  end
+
+  local filtered = {}
+  for k, v in pairs(arr) do
+    if fn(v, k, arr) then
+      table.insert(filtered, v)
+    end
+  end
+
+  return filtered
+end
+
+local function reactDTSFilterPredicate(value)
+  return string.match(value.filename, 'react/index.d.ts') == nil
+end
+
+local function on_list(options)
+  local items = options.items
+  if #items > 1 then
+    items = filter(items, reactDTSFilterPredicate)
+  end
+
+  vim.fn.setqflist({}, ' ', { title = options.title, items = items, context = options.context })
+  vim.api.nvim_command 'cfirst' -- or maybe you want 'copen' instead of 'cfirst'
+end
+
 lsp.on_attach(function(_, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set('n', 'gd', function()
-    vim.lsp.buf.definition()
+    vim.lsp.buf.definition { on_list = on_list }
   end, opts)
   vim.keymap.set('n', 'gy', function()
     vim.lsp.buf.type_definition()

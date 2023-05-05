@@ -1,6 +1,7 @@
 #!/bin/bash
 
 pkill sxhkd
+pkill flameshot
 pkill picom
 pkill conky
 if [ -x "$(command -v eww)" ]; then

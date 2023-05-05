@@ -73,7 +73,7 @@ config.window_padding = {
 
 -- Tab bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
@@ -81,7 +81,8 @@ config.use_fancy_tab_bar = false
 config.cursor_blink_ease_in = 'Constant'
 config.cursor_blink_ease_out = 'Constant'
 config.cursor_blink_rate = 0
-config.default_cursor_style = 'BlinkingBlock'
+
+config.scrollback_lines = 10000
 
 ------------------------------------
 -- Key bindings
@@ -121,10 +122,10 @@ config.keys = {
   { key = '8', mods = 'LEADER', action = act.ActivateTab(8 - 1) },
   { key = '9', mods = 'LEADER', action = act.MoveTab(9 - 1) },
   { key = '9', mods = 'LEADER', action = act.ActivateTab(9 - 1) },
-  { key = 'p', mods = 'LEADER', action = act.MoveTabRelative(-1) },
-  { key = 'p', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
-  { key = 'n', mods = 'LEADER', action = act.MoveTabRelative(1) },
-  { key = 'n', mods = 'LEADER', action = act.ActivateTabRelative(1) },
+  { key = 'p', mods = 'LEADER|SHIFT', action = act.MoveTabRelative(-1) },
+  { key = 'p', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
+  { key = 'n', mods = 'LEADER|SHIFT', action = act.MoveTabRelative(1) },
+  { key = 'n', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(1) },
   -- Create/close tabs.
   { key = 'c', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
   { key = 'x', mods = 'LEADER|SHIFT', action = act.CloseCurrentTab { confirm = true } },
@@ -133,8 +134,6 @@ config.keys = {
   { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
   -- Launcher.
   { key = 's', mods = 'LEADER|SHIFT', action = act.ShowLauncher },
-  -- Search.
-  { key = '/', mods = 'LEADER', action = act.Search 'CurrentSelectionOrEmptyString' },
   -- Workspaces.
   {
     key = 'w',
@@ -162,7 +161,7 @@ config.keys = {
   },
   {
     key = 'f',
-    mods = 'LEADER',
+    mods = 'CTRL',
     -- Asks to select a workspace from a list of pre-defined and already existing workspaces.
     -- First, if the selected workspace does not already exist, spawn a window in it with
     -- a specifed cwd. Then, switch to the workspace.
@@ -183,29 +182,29 @@ config.keys = {
         end
 
         -- Add ~/.dotfiles to list of workspaces if not already exists.
-        local dotfiles_label = '~/.dotfiles'
-        if added[dotfiles_label] == nil then
-          table.insert(choices, { label = dotfiles_label, id = wezterm.home_dir .. '/.dotfiles' })
-          added[dotfiles_label] = true
+        local dotfiles_dir = wezterm.home_dir .. '/.dotfiles'
+        if added[dotfiles_dir] == nil then
+          table.insert(choices, { label = dotfiles_dir, id = dotfiles_dir })
+          added[dotfiles_dir] = true
         end
 
         -- Add all directories in ~/Projects to list of workspace if not already exists.
         local projects_dir = wezterm.home_dir .. '/Projects'
         for _, name in pairs(scandir(projects_dir)) do
-          local label = '~/Projects/' .. name
-          if added[label] == nil then
-            table.insert(choices, { label = label, id = projects_dir .. '/' .. name })
-            added[label] = true
+          local dir = projects_dir .. '/' .. name
+          if added[dir] == nil then
+            table.insert(choices, { label = dir, id = dir })
+            added[dir] = true
           end
         end
 
         -- Add all directories in ~/Work to list of workspace if not already exists.
         local work_dir = wezterm.home_dir .. '/Work'
         for _, name in pairs(scandir(work_dir)) do
-          local label = '~/Work/' .. name
-          if added[label] == nil then
-            table.insert(choices, { label = label, id = work_dir .. '/' .. name })
-            added[label] = true
+          local dir = work_dir .. '/' .. name
+          if added[dir] == nil then
+            table.insert(choices, { label = dir, id = dir })
+            added[dir] = true
           end
         end
 
@@ -230,6 +229,7 @@ config.keys = {
 
         if not workspace_exists then
           mux.spawn_window { workspace = label, cwd = id }
+          wezterm.log_info('spawning window for ' .. id .. '.')
         end
 
         window:perform_action(
@@ -241,8 +241,10 @@ config.keys = {
       end),
     },
   },
-  { key = 'n', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(1) },
-  { key = 'p', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(-1) },
+  { key = 'n', mods = 'LEADER', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'p', mods = 'LEADER', action = act.SwitchWorkspaceRelative(-1) },
+  -- Search.
+  { key = '/', mods = 'LEADER', action = act.Search 'CurrentSelectionOrEmptyString' },
 }
 config.key_tables = {
   search_mode = {
@@ -250,9 +252,8 @@ config.key_tables = {
     { key = 'n', mods = 'CTRL', action = act.CopyMode 'NextMatch' },
     { key = 'p', mods = 'CTRL', action = act.CopyMode 'PriorMatch' },
     { key = 'r', mods = 'CTRL', action = act.CopyMode 'CycleMatchType' },
-    { key = 'u', mods = 'CTRL', action = act.CopyMode 'ClearPattern' },
-    { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PriorMatchPage' },
-    { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'NextMatchPage' },
+    { key = 'u', mods = 'CTRL', action = act.CopyMode 'NextMatchPage' },
+    { key = 'd', mods = 'CTRL', action = act.CopyMode 'PriorMatchPage' },
   },
 }
 

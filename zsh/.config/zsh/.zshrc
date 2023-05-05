@@ -6,6 +6,8 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 export HISTFILE="${XDG_DATA_HOME:-#HOME/.local/share}/history"
 
+[[ -f "$ZDOTDIR/.workprofile" ]] && . "$ZDOTDIR/.workprofile"
+
 ###
 # Prompt
 ###
@@ -70,7 +72,7 @@ bindkey -M vicmd '^[[P' vi-delete-char
 bindkey -M vicmd '^e' edit-command-line
 bindkey -M visual '^[[P' vi-delete
 
-### 
+###
 # Source plugins
 ###
 
@@ -84,7 +86,7 @@ function zsh_source_file() {
 
 function zsh_add_plugin() {
     PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then
         # For plugins
         zsh_source_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
         zsh_source_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
@@ -99,7 +101,7 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
  [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-### 
+###
 # Functions
 ###
 

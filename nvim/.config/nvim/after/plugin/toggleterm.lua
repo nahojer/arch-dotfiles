@@ -18,6 +18,5 @@ require('toggleterm').setup {
   shell = vim.o.shell,
 }
 
-vim.keymap.set('t', '<C-c>', '<C-\\><C-n>')
 vim.keymap.set('t', '<esc>', '<C-\\><esc>')
 vim.keymap.set({ 'n', 't' }, '<C-w>g', '<cmd>lua ToggleLazyGit()<CR>')

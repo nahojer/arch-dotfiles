@@ -1,7 +1,10 @@
 dhcpcd.service
+fstrim.timer
 getty@.service
 ModemManager.service
 NetworkManager-dispatcher.service
 NetworkManager.service
 NetworkManager-wait-online.service
+reflector.service
 remote-fs.target
+systemd-timesyncd.service

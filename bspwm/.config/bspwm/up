@@ -4,6 +4,8 @@ SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 
 sxhkd &
 
+flameshot &
+
 eww daemon &
 
 if [ -x "$(command -v picom)" ]; then

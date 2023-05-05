@@ -25,6 +25,10 @@ XF86Sleep
 	# https://github.com/google/xsecurelock
 	xset s activate
 
+# Print screen.
+Print
+	flameshot gui
+
 # Toggle between Swedish and American keyboard layout.
 super + ctrl + p
 	togglexkbmap
@@ -42,7 +46,7 @@ super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
 # Swap the node in the given direction.
-super + shift + {h,j,k,l} 
+super + shift + {h,j,k,l}
 	bspc node -s {west,south,north,east}
 
 # Focus the selected desktop on primary monitor.
@@ -86,4 +90,4 @@ alt + t
 
 # Spawn dmenu.
 super + d
-	dmenu_run
+	rofi -show drun

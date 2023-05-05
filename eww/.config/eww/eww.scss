@@ -37,7 +37,7 @@ window {
       color: $white;
     }
     .urgent {
-      color: $red; 
+      color: $red;
     }
     .empty {
       padding-top: 2px;
@@ -50,7 +50,7 @@ window {
     color: $grey;
 
     .metric {
-      margin-top: 2px; /* Ugly hack... I don't know how to center stuff... */
+      margin-top: 1px; /* Ugly hack... I don't know how to center stuff... */
       .label {
         margin-right: 10px;
       }

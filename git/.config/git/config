@@ -1,10 +1,15 @@
 [user]
-	email = ronkko.johan@gmail.com
+    email = johan.ronkko@formulate.app
 	name = Johan Rönkkö
 [init]
     defaultBranch = main
 [color]
-	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
 [core]
 	editor = helix
 	excludesFile = ~/.config/git/ignore
@@ -26,3 +31,11 @@
 	autoSetupMerge = simple
 [url "ssh://git@gitlab.com"]
 	insteadOf = https://gitlab.com
+[url "git@github.com:"]
+	insteadOf = <https://github.com/>
+[url "ssh://git@github.com/formulatehq/"]
+	insteadOf = https://github.com/formulatehq/
+[url "ssh://git@github.com/googleapis/"]
+	insteadOf = https://github.com/googleapis/
+[url "ssh://git@github.com/grpc-gateway/"]
+	insteadOf = https://github.com/grpc-gateway/

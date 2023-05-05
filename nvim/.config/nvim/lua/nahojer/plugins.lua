@@ -21,9 +21,10 @@ local plugins = {
     end,
   },
   { 'nvim-treesitter/playground' },
+  { 'nvim-treesitter/nvim-treesitter-context' },
+  { 'nvim-treesitter/nvim-treesitter-textobjects' },
   { 'theprimeagen/harpoon' },
   { 'mbbill/undotree' },
-  { 'nvim-treesitter/nvim-treesitter-context' },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
