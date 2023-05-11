@@ -48,12 +48,12 @@ end)
 ------------------------------------
 
 -- Colors
-config.color_scheme = 'GitHub Dark'
-config.color_schemes = {
-  ['plain_white'] = require 'color_schemes.plain_white',
-  ['plain_black'] = require 'color_schemes.plain_black',
-  ['boring'] = require 'color_schemes.boring',
-}
+-- config.color_scheme = 'plain_black'
+-- config.color_schemes = {
+--   ['plain_white'] = require 'color_schemes.plain_white',
+--   ['plain_black'] = require 'color_schemes.plain_black',
+--   ['boring'] = require 'color_schemes.boring',
+-- }
 
 -- Transparency
 config.window_background_opacity = 1
@@ -73,7 +73,7 @@ config.window_padding = {
 
 -- Tab bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
@@ -122,10 +122,10 @@ config.keys = {
   { key = '8', mods = 'LEADER', action = act.ActivateTab(8 - 1) },
   { key = '9', mods = 'LEADER', action = act.MoveTab(9 - 1) },
   { key = '9', mods = 'LEADER', action = act.ActivateTab(9 - 1) },
-  { key = 'p', mods = 'LEADER|SHIFT', action = act.MoveTabRelative(-1) },
-  { key = 'p', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(-1) },
-  { key = 'n', mods = 'LEADER|SHIFT', action = act.MoveTabRelative(1) },
-  { key = 'n', mods = 'LEADER|SHIFT', action = act.ActivateTabRelative(1) },
+  { key = 'p', mods = 'LEADER', action = act.MoveTabRelative(-1) },
+  { key = 'p', mods = 'LEADER', action = act.ActivateTabRelative(-1) },
+  { key = 'n', mods = 'LEADER', action = act.MoveTabRelative(1) },
+  { key = 'n', mods = 'LEADER', action = act.ActivateTabRelative(1) },
   -- Create/close tabs.
   { key = 'c', mods = 'LEADER', action = act.SpawnTab 'CurrentPaneDomain' },
   { key = 'x', mods = 'LEADER|SHIFT', action = act.CloseCurrentTab { confirm = true } },
@@ -241,8 +241,8 @@ config.keys = {
       end),
     },
   },
-  { key = 'n', mods = 'LEADER', action = act.SwitchWorkspaceRelative(1) },
-  { key = 'p', mods = 'LEADER', action = act.SwitchWorkspaceRelative(-1) },
+  { key = 'n', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(1) },
+  { key = 'p', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(-1) },
   -- Search.
   { key = '/', mods = 'LEADER', action = act.Search 'CurrentSelectionOrEmptyString' },
 }

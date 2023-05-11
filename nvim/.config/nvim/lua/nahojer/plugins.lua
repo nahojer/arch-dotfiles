@@ -49,6 +49,10 @@ local plugins = {
       { 'rafamadriz/friendly-snippets' },
     },
   },
+  { 'mfussenegger/nvim-dap' },
+  { 'rcarriga/nvim-dap-ui' },
+  { 'leoluz/nvim-dap-go' },
+  { 'theHamsta/nvim-dap-virtual-text' },
   { 'numToStr/Comment.nvim' },
 }
 
