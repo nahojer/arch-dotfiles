@@ -48,9 +48,9 @@
 
 (defwidget sidestuff []
   (box :class "sidestuff"
-       :spacing 12 
-       :hexpand true 
-       :vexpand true 
+       :spacing 12
+       :hexpand true
+       :vexpand true
        :halign "end"
        :space-evenly false
     (volume)
@@ -60,11 +60,11 @@
     (time)))
 
 (defwidget time []
-  (box :class "time" :orientation "h" :space-evenly false  
+  (box :class "time" :orientation "h" :space-evenly false
     (label :text "  ${time_poll}" )))
 
 (defwidget date []
-  (box :class "date" :orientation "h" :space-evenly false  
+  (box :class "date" :orientation "h" :space-evenly false
     (label :text "  ${date_poll}" )))
 
 (defwidget volume []
