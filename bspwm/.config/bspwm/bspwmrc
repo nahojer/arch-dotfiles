@@ -35,4 +35,4 @@ bspc config border_width         3
 
 # Rules.
 bspc rule -r "*" # Remove any previously added rules
-bspc rule -a weztermscpad sticky=on state=floating center=true rectangle=1000x600+0+0
+bspc rule -a Emacs state=tiled

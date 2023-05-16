@@ -162,6 +162,7 @@ fze() {
 alias hx="helix"
 alias lg="lazygit"
 alias ls="exa"
+alias emacs="emacsclient -c -a \"\""
 
 ###
 # FZF

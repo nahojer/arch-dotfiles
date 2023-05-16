@@ -84,10 +84,6 @@ super + ctrl + {h,j,k,l}
 super + Return
 	wezterm
 
-# Toggle WezTerm scratchpad.
-alt + t
-	toggle-wezterm-scpad
-
 # Spawn dmenu.
 super + d
 	rofi -show drun
