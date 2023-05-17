@@ -14,7 +14,7 @@ fi
 
 # Set background
 if [ -x "$(command -v feh)" ]; then
-  feh --bg-scale $SCRIPTPATH/background.jpg
+  feh -no-fehbg --bg-scale $SCRIPTPATH/background.jpg
 fi
 
 eww open bar_primary
