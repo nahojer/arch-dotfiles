@@ -188,6 +188,13 @@ config.keys = {
           added[dotfiles_dir] = true
         end
 
+        -- Add ~/Scratch to list of workspaces if not already exists.
+        local scratch_dir = wezterm.home_dir .. '/Scratch'
+        if added[scratch_dir] == nil then
+          table.insert(choices, { label = scratch_dir, id = scratch_dir })
+          added[scratch_dir] = true
+        end
+
         -- Add all directories in ~/Projects to list of workspace if not already exists.
         local projects_dir = wezterm.home_dir .. '/Projects'
         for _, name in pairs(scandir(projects_dir)) do
