@@ -1,4 +1,5 @@
 local plugins = {
+  { 'lewis6991/gitsigns.nvim' },
   { 'akinsho/toggleterm.nvim' },
   {
     'nvim-telescope/telescope.nvim',
