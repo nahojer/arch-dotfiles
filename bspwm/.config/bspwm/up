@@ -19,3 +19,5 @@ fi
 
 eww open bar_primary
 [[ "$(secondarymonitor)" != "" ]] && eww open bar_secondary
+
+systemctl --user restart emacs
