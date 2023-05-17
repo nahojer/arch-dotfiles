@@ -1,6 +1,6 @@
-auto-save-list
-elpa
-transient
-init.el~
-history
-url
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!init.el
