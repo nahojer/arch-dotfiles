@@ -62,6 +62,7 @@ export XSECURELOCK_NO_COMPOSITE=1 # Prevent "INCOMPATIBLE COMPOSITOR, PLEASE FIX
 # PATH:
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/go/bin"
+export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/zig/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/zlz/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/scripts"
