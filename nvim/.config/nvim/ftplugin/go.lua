@@ -3,3 +3,5 @@ vo.tabstop = 4
 vo.shiftwidth = 4
 vo.softtabstop = 4
 vo.expandtab = false
+
+vim.cmd 'Copilot enable'

@@ -4,9 +4,10 @@ local plugins = {
   {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
+    -- or, branch = '0.1.x',
     dependencies = { { 'nvim-lua/plenary.nvim' } },
   },
+  { 'Shatur/neovim-ayu' },
   {
     'rose-pine/neovim',
     as = 'rose-pine',
@@ -55,6 +56,7 @@ local plugins = {
   { 'leoluz/nvim-dap-go' },
   { 'theHamsta/nvim-dap-virtual-text' },
   { 'numToStr/Comment.nvim' },
+  { 'github/copilot.vim' },
 }
 
 local opts = {}
