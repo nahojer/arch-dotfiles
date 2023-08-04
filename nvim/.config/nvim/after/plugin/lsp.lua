@@ -123,6 +123,9 @@ lsp.on_attach(function(_, bufnr)
   vim.keymap.set('n', '<leader>D', '<cmd>Telescope diagnostics<CR>', opts)
   vim.keymap.set('n', '<leader>s', '<cmd>Telescope lsp_document_symbols<CR>', opts)
   vim.keymap.set('n', '<leader>S', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
+  vim.keymap.set('n', '<leader>i', function()
+    vim.diagnostic.open_float { bufnr = 0, scope = 'line' }
+  end, opts)
 
   vim.keymap.set('n', ']d', function()
     vim.diagnostic.goto_next()

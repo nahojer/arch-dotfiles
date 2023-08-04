@@ -11,7 +11,7 @@
 	ui = true
 	pager = true
 [core]
-	editor = helix
+	editor = nvim
 	excludesFile = ~/.config/git/ignore
 [alias]
 	# List all aliases and trim the "alias." prefix.

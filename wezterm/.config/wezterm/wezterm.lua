@@ -48,16 +48,11 @@ end)
 ------------------------------------
 
 -- Colors
--- config.color_scheme = 'plain_black'
--- config.color_schemes = {
---   ['plain_white'] = require 'color_schemes.plain_white',
---   ['plain_black'] = require 'color_schemes.plain_black',
---   ['boring'] = require 'color_schemes.boring',
--- }
+config.color_scheme = 'Ayu Dark (Gogh)'
 
 -- Transparency
 config.window_background_opacity = 1
-config.font_size = 10
+config.font_size = 12
 config.line_height = 1.0
 config.dpi = 96.0
 

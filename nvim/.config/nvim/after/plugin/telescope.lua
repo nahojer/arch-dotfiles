@@ -9,5 +9,7 @@ end)
 vim.keymap.set('n', '<leader>?', builtin.help_tags, {})
 
 require('telescope').setup = {
-  file_ignore_patterns = { '.git/', 'node_modules/', 'vendor/', '.cache/', '.vscode/', '*/tmp/*', 'Cargo.lock', '*pycache', '*.o' },
+  defaults = {
+    file_ignore_patterns = { '.git', 'node_modules', 'vendor', '.cache', '.vscode', '*/tmp/*', 'Cargo.lock', '*pycache', '*.o' },
+  },
 }

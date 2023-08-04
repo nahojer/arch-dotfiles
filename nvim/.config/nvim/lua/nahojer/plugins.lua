@@ -9,11 +9,11 @@ local plugins = {
   },
   { 'Shatur/neovim-ayu' },
   {
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-      vim.cmd 'colorscheme rose-pine'
-    end,
+    'mcchrish/zenbones.nvim',
+    -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+    -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+    -- In Vim, compat mode is turned on as Lush only works in Neovim.
+    dependencies = { 'rktjmp/lush.nvim' },
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -22,6 +22,7 @@ local plugins = {
       ts_update()
     end,
   },
+  { 'lukas-reineke/indent-blankline.nvim' },
   { 'nvim-treesitter/playground' },
   { 'nvim-treesitter/nvim-treesitter-context' },
   { 'nvim-treesitter/nvim-treesitter-textobjects' },
