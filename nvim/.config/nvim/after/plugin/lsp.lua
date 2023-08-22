@@ -224,7 +224,6 @@ null_ls.setup {
     },
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.staticcheck,
-    null_ls.builtins.diagnostics.staticcheck,
     null_ls.builtins.diagnostics.terraform_validate,
     null_ls.builtins.diagnostics.stylelint,
     null_ls.builtins.diagnostics.zsh,
