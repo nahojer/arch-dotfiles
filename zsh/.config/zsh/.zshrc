@@ -156,6 +156,10 @@ fze() {
 	$EDITOR "$filename"
 }
 
+vimbegood() {
+    docker run -it --rm brandoncc/vim-be-good:latest
+}
+
 ###
 # Aliases
 ###
