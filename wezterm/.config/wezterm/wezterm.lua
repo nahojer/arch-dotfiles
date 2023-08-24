@@ -47,9 +47,7 @@ end)
 -- Appearance
 ------------------------------------
 
--- Colors
--- config.color_scheme = 'Ayu Dark (Gogh)'
-config.color_scheme = 'Gruvbox dark, hard (base16)'
+config.color_scheme = 'Belge (terminal.sexy)'
 
 -- Transparency
 config.window_background_opacity = 1
