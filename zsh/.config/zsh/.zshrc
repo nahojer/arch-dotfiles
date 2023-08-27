@@ -188,3 +188,10 @@ lockscreen() {
 	# https://github.com/google/xsecurelock
 	xset s activate
 }
+
+###
+# WiFi
+###
+wifil() {
+    nmcli device wifi list --rescan yes
+}
