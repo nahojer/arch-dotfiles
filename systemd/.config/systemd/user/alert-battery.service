@@ -1,0 +1,9 @@
+[Unit]
+Description=Desktop alert warning of low remaining battery
+
+[Service]
+Type=oneshot
+ExecStart=/home/j/.local/share/scripts/lowbatnotify
+
+[Install]
+WantedBy=graphical.target
