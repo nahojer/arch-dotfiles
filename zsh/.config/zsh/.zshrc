@@ -161,14 +161,6 @@ vimbegood() {
 }
 
 ###
-# Aliases
-###
-alias hx="helix"
-alias lg="lazygit"
-alias ls="exa"
-alias emacs="emacsclient -c -a \"\""
-
-###
 # FZF
 ###
 #
@@ -194,4 +186,11 @@ lockscreen() {
 ###
 wifil() {
     nmcli device wifi list --rescan yes
+}
+
+###
+# CSV
+###
+viewcsv() {
+    column -s, -t < "$1" | less -#2 -N -S
 }

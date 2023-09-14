@@ -5,10 +5,10 @@
 unsetopt PROMPT_SP
 
 # Default programs:
-export EDITOR="helix"
-export VISUAL="helix"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="wezterm"
-export BROWSER="qutebrowser"
+export BROWSER="chromium"
 
 # $HOME cleanup:
 #Config
@@ -63,6 +63,7 @@ export XSECURELOCK_NO_COMPOSITE=1 # Prevent "INCOMPATIBLE COMPOSITOR, PLEASE FIX
 export PATH="$PATH:/usr/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/go/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/zig/bin"
+export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/zls/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/zlz/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/cargo/bin"
 export PATH="$PATH:${XDG_DATA_HOME:-$HOME/.local/share}/scripts"
