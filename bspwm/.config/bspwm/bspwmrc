@@ -35,4 +35,9 @@ bspc config border_width         3
 
 # Rules.
 bspc rule -r "*" # Remove any previously added rules
-bspc rule -a Emacs state=tiled
+bspc rule -a slack desktop='^1'
+bspc rule -a org.wezfurlong.wezterm desktop='^2' # Terminal
+bspc rule -a Chromium desktop='^3'
+bspc rule -a code-oss desktop='^4' # Visual Studio Code
+bspc rule -a Postman desktop='^5'
+bspc rule -a gpclient desktop='^6' # VPN client
