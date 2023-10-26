@@ -175,37 +175,39 @@ config.keys = {
           added[choice.label] = true
         end
 
-        -- Add ~/.dotfiles to list of workspaces if not already exists.
-        local dotfiles_dir = wezterm.home_dir .. '/.dotfiles'
-        if added[dotfiles_dir] == nil then
-          table.insert(choices, { label = dotfiles_dir, id = dotfiles_dir })
-          added[dotfiles_dir] = true
-        end
-
-        -- Add ~/Scratch to list of workspaces if not already exists.
-        local scratch_dir = wezterm.home_dir .. '/Scratch'
-        if added[scratch_dir] == nil then
-          table.insert(choices, { label = scratch_dir, id = scratch_dir })
-          added[scratch_dir] = true
-        end
-
-        -- Add all directories in ~/Projects to list of workspace if not already exists.
-        local projects_dir = wezterm.home_dir .. '/Projects'
-        for _, name in pairs(scandir(projects_dir)) do
-          local dir = projects_dir .. '/' .. name
-          if added[dir] == nil then
-            table.insert(choices, { label = dir, id = dir })
-            added[dir] = true
-          end
-        end
-
-        -- Add all directories in ~/Work to list of workspace if not already exists.
-        local work_dir = wezterm.home_dir .. '/Work'
-        for _, name in pairs(scandir(work_dir)) do
-          local dir = work_dir .. '/' .. name
-          if added[dir] == nil then
-            table.insert(choices, { label = dir, id = dir })
-            added[dir] = true
+        local dirs = {
+          {
+            path = wezterm.home_dir .. '/.dotfiles',
+            recursive = false,
+          },
+          {
+            path = wezterm.home_dir .. '/Scratch',
+            recursive = false,
+          },
+          {
+            path = wezterm.home_dir .. '/Work',
+            recursive = true,
+          },
+          {
+            path = wezterm.home_dir .. '/Projects',
+            recursive = true,
+          },
+        }
+        for _, dir in pairs(dirs) do
+          if dir.recursive then
+            -- Only one level of recursion.
+            for _, name in pairs(scandir(dir.path)) do
+              local path = dir.path .. '/' .. name
+              if added[path] == nil then
+                table.insert(choices, { label = path, id = path })
+                added[path] = true
+              end
+            end
+          else
+            if added[dir.path] == nil then
+              table.insert(choices, { label = dir.path, id = dir.path })
+              added[dir.path] = true
+            end
           end
         end
 
@@ -246,6 +248,7 @@ config.keys = {
   { key = 'p', mods = 'LEADER|SHIFT', action = act.SwitchWorkspaceRelative(-1) },
   -- Search.
   { key = '/', mods = 'LEADER', action = act.Search 'CurrentSelectionOrEmptyString' },
+  { key = ' ', mods = 'LEADER', action = wezterm.action.QuickSelect },
 }
 config.key_tables = {
   search_mode = {

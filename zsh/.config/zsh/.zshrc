@@ -195,4 +195,5 @@ viewcsv() {
     column -s, -t < "$1" | less -#2 -N -S
 }
 
-export HELIX_RUNTIME="$HOME.config/helix/runtime"
+
+alias hx="helix"
