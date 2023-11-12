@@ -1,3 +1,7 @@
+[core]
+	editor = nvim
+	excludesFile = ~/.config/git/ignore
+    pager = delta
 [user]
     email = johan.ronkko@formulate.app
 	name = Johan Rönkkö
@@ -10,9 +14,26 @@
 	interactive = auto
 	ui = true
 	pager = true
-[core]
-	editor = nvim
-	excludesFile = ~/.config/git/ignore
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    side-by-side = true
+    line-numbers = true
+[merge]
+    conflictstyle = diff3
+[rebase]
+	autoStash = true
+	autosquash = true
+[diff]
+    colorMoved = default
+[push]
+	autoSetupRemote = true
+[pull]
+	rebase = true
+[branch]
+	autoSetupMerge = simple
 [alias]
 	# List all aliases and trim the "alias." prefix.
 	alias = !git config --list | grep -E '^alias' | awk -F'.' '{print $2}'
@@ -23,12 +44,6 @@
 	nuke = !"bash -c \"git for-each-ref --format '%(refname:short)' refs/heads/ | grep -v master | grep -v main | grep -v stable | grep -v staging | grep -v trunk | grep -v develop | grep -v $(git rev-parse --abbrev-ref HEAD 2>/dev/null) | xargs git branch -D 2>/dev/null\""
 	# Undo all changes and remove all untracked files and dirs.
 	fuckit = !"bash -c 'git reset HEAD --hard ; git clean -f'"
-[push]
-	autoSetupRemote = true
-[pull]
-	rebase = true
-[branch]
-	autoSetupMerge = simple
 [url "ssh://git@gitlab.com"]
 	insteadOf = https://gitlab.com
 [url "git@github.com:"]
