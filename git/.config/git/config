@@ -54,3 +54,5 @@
 	insteadOf = https://github.com/googleapis/
 [url "ssh://git@github.com/grpc-gateway/"]
 	insteadOf = https://github.com/grpc-gateway/
+[rerere]
+	enabled = true
