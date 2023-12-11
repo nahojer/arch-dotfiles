@@ -47,7 +47,7 @@ end)
 -- Appearance
 ------------------------------------
 
--- config.color_scheme = 'Belge (terminal.sexy)'
+config.color_scheme = 'ayu'
 
 -- Transparency
 config.window_background_opacity = 1
@@ -67,7 +67,7 @@ config.window_padding = {
 
 -- Tab bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = false
+config.hide_tab_bar_if_only_one_tab = true
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
