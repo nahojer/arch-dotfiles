@@ -47,7 +47,7 @@ end)
 -- Appearance
 ------------------------------------
 
-config.color_scheme = 'Belge (terminal.sexy)'
+-- config.color_scheme = 'Belge (terminal.sexy)'
 
 -- Transparency
 config.window_background_opacity = 1
@@ -56,8 +56,8 @@ config.line_height = 1.0
 config.dpi = 96.0
 
 -- Padding
-local horizontalPadding = 5
-local verticalPadding = 5
+local horizontalPadding = 0
+local verticalPadding = 0
 config.window_padding = {
   left = horizontalPadding,
   right = horizontalPadding,
