@@ -14,17 +14,34 @@ config.front_end = 'OpenGL'
 -- Events
 ------------------------------------
 
-local function scandir(directory)
-  local pfile = assert(io.popen(("find '%s' -mindepth 1 -maxdepth 1 -type d -printf '%%f\\0'"):format(directory), 'r'))
+local function get_child_dirs(parent_dir)
+  local pfile = assert(io.popen(("find '%s' -mindepth 1 -maxdepth 1 -type d -printf '%%f\\0'"):format(parent_dir), 'r'))
   local list = pfile:read '*a'
   pfile:close()
 
-  local folders = {}
+  local child_dirs = {}
   for filename in string.gmatch(list, '[^%z]+') do
-    table.insert(folders, filename)
+    table.insert(child_dirs, filename)
   end
 
-  return folders
+  return child_dirs
+end
+
+local function path_exists(file)
+  local ok, err, code = os.rename(file, file)
+  if not ok then
+    if code == 13 then
+      -- Permission denied, but it exists
+      return true
+    end
+  end
+  return ok, err
+end
+
+--- Check if a directory exists in this path
+local function is_dir(path)
+  -- "/" works on both Unix and Windows
+  return path_exists(path .. '/')
 end
 
 wezterm.on('update-right-status', function(window, _)
@@ -67,7 +84,7 @@ config.window_padding = {
 
 -- Tab bar
 config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.show_tab_index_in_tab_bar = true
 config.tab_bar_at_bottom = true
 config.show_new_tab_button_in_tab_bar = false
@@ -175,40 +192,53 @@ config.keys = {
           added[choice.label] = true
         end
 
+        local function add_workspace(path, choice)
+          if added[path] == nil then
+            table.insert(choices, choice)
+            added[path] = true
+          end
+        end
+
+        -- Add pre-defined workspaces to the list of choices if they exist.
         local dirs = {
           {
             path = wezterm.home_dir .. '/.dotfiles',
-            recursive = false,
+            with_subdirs = false,
+          },
+          {
+            path = wezterm.home_dir .. '/.config/nvim',
+            with_subdirs = false,
           },
           {
             path = wezterm.home_dir .. '/Scratch',
-            recursive = false,
+            with_subdirs = false,
           },
           {
             path = wezterm.home_dir .. '/Work',
-            recursive = true,
+            with_subdirs = true,
           },
           {
             path = wezterm.home_dir .. '/Projects',
-            recursive = true,
+            with_subdirs = true,
           },
         }
         for _, dir in pairs(dirs) do
-          if dir.recursive then
+          if not is_dir(dir.path) then
+            wezterm.log_error('directory ' .. dir.path .. ' does not exist.')
+            goto continue
+          end
+
+          add_workspace(dir.path, { label = dir.path, id = dir.path })
+
+          if dir.with_subdirs then
             -- Only one level of recursion.
-            for _, name in pairs(scandir(dir.path)) do
+            for _, name in pairs(get_child_dirs(dir.path)) do
               local path = dir.path .. '/' .. name
-              if added[path] == nil then
-                table.insert(choices, { label = path, id = path })
-                added[path] = true
-              end
-            end
-          else
-            if added[dir.path] == nil then
-              table.insert(choices, { label = dir.path, id = dir.path })
-              added[dir.path] = true
+              add_workspace(path, { label = path, id = path })
             end
           end
+
+          ::continue::
         end
 
         table.sort(choices, function(a, b)
