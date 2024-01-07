@@ -1,0 +1,6 @@
+[user]
+    email = johan.ronkko@formulate.app
+	name = Johan Rönkkö
+[url "ssh://git@github.com/formulatehq/"]
+	insteadOf = https://github.com/formulatehq/
+
