@@ -296,5 +296,6 @@ config.key_tables = {
 ------------------------------------
 config.automatically_reload_config = true
 config.window_close_confirmation = 'NeverPrompt'
+config.enable_kitty_keyboard = true
 
 return config
