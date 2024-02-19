@@ -28,6 +28,7 @@
 	autosquash = true
 [diff]
     colorMoved = default
+    algorithm = histogram
 [push]
 	autoSetupRemote = true
 [pull]
