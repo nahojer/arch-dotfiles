@@ -1,0 +1,28 @@
+#/bin/bash
+
+declare -a containers
+declare -a images
+declare -a volumes
+length=0
+for volume in $(docker volume ls | awk -F' ' 'NR>1 {print $2}')
+do
+    container="$(docker ps -a --filter volume="$volume" | awk -F' ' 'NR>1 {print $1}')"
+    image="$(docker ps -a --filter volume="$volume" | awk -F' ' 'NR>1 {print $2}')"
+
+    [[ -z "${container}" ]] && continue
+
+    containers+=("$container")
+    images+=("$image")
+    volumes+=("$volume")
+    length=$((length+1))
+done
+
+selected=$(echo $(for i in $(seq $length)
+do
+    idx=$(($i - 1))
+    echo "${images[$idx]} ${container[$idx]} ${volumes[$idx]}"
+done) | fzf --header="image container volume")
+
+echo $selected | awk -F' ' '{print "image: " $1}'
+echo $selected | awk -F' ' '{print "container: " $2}'
+echo $selected | awk -F' ' '{print "volume: " $3}'
