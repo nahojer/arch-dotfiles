@@ -49,6 +49,10 @@
     amend = commit --amend --no-edit --no-verify
     # We always want colors for moved pieces.
 	diff = diff --color-moved=plain
+    # Always add in patch mode.
+    addp = "!f() { \
+    git add $@ -p; \
+    }; f"
 [url "ssh://git@gitlab.com"]
 	insteadOf = https://gitlab.com
 [url "git@github.com:"]
