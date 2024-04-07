@@ -194,3 +194,10 @@ wifil() {
 viewcsv() {
     column -s, -t < "$1" | less -#2 -N -S
 }
+
+
+###
+# Aliases
+###
+
+alias nvim-scratch="NVIM_APPNAME=nvim-scratch nvim"
