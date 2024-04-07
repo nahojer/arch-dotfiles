@@ -210,6 +210,10 @@ config.keys = {
             with_subdirs = false,
           },
           {
+            path = wezterm.home_dir .. '/.config/nvim-scratch',
+            with_subdirs = false,
+          },
+          {
             path = wezterm.home_dir .. '/Scratch',
             with_subdirs = false,
           },
