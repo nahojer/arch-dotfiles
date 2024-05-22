@@ -6,7 +6,6 @@ HISTSIZE=10000000
 SAVEHIST=10000000
 export HISTFILE="${XDG_DATA_HOME:-#HOME/.local/share}/history"
 
-[[ -f "$ZDOTDIR/.workprofile" ]] && . "$ZDOTDIR/.workprofile"
 
 ###
 # Prompt
@@ -31,6 +30,7 @@ zstyle ':vcs_info:git:*' formats       '(%b%u%c)'
 zstyle ':vcs_info:git:*' actionformats '(%b|%a%u%c)'
 
 # Activate zsh completion system.
+fpath=('/home/j/.local/share/pop/completion/zsh' $fpath)
 autoload -Uz +X compinit && compinit
 zmodload zsh/zpty
 
@@ -168,10 +168,6 @@ if [[ ! "$PATH" == */home/j/.dotfiles/vim/.config/vim/plugged/fzf/bin* ]]; then
   PATH="${PATH:+${PATH}:}/home/j/.dotfiles/vim/.config/vim/plugged/fzf/bin"
 fi
 
-# Auto-completion
-# ---------------
-[[ $- == *i* ]] && source "/home/j/.dotfiles/vim/.config/vim/plugged/fzf/shell/completion.zsh" 2> /dev/null
-
 ###
 # X11
 ###
@@ -195,9 +191,14 @@ viewcsv() {
     column -s, -t < "$1" | less -#2 -N -S
 }
 
-
 ###
-# Aliases
+# pyenv
 ###
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
-alias nvim-scratch="NVIM_APPNAME=nvim-scratch nvim"
+[[ -f "$ZDOTDIR/.workprofile" ]] && . "$ZDOTDIR/.workprofile"
+
+
+source '/home/j/.local/share/pop/shell_init/zsh/init.zsh' # added by pop
